@@ -1,0 +1,28 @@
+{
+  "name": "bpp-plus-basic-v2-syntax",
+  "displayName": "BPP+ BASIC V2 Syntax Highlighting",
+  "description": "Minimal syntax highlighting for Commodore 64 BASIC V2",
+  "version": "0.0.1",
+  "publisher": "Hakan Persson Tence",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "bpp+basicv2",
+        "aliases": ["BPP+ BASIC V2", "bpp+basicv2"],
+        "extensions": [".bpp"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bpp+basicv2",
+        "scopeName": "source.bpp+basicv2",
+        "path": "./syntaxes/bpp-plus-basic-v2.tmLanguage.json"
+      }
+    ]
+  }
+}

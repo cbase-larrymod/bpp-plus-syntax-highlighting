@@ -1,0 +1,212 @@
+{
+    "name": "Commodore BPP+ BASIC V2",
+    "scopeName": "source.bpp+basicv2",
+
+    "patterns": [
+                {
+            "include": "#bppinclude"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#tokens"
+        },
+        {
+            "include": "#labels"
+        },
+        {
+            "include": "#label_references"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#statement_chaining"
+        }
+    ],
+
+    "repository": {
+
+        "bppinclude": {
+            "patterns": [
+                {
+                    "name": "constant.numeric",
+                    "begin": "\\{\\s*!include\\s+",
+                    "beginCaptures": {
+                        "0": { "name": "punctuation.section.braces.begin" }
+                },
+                    "end": "\\s*\\}",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.section.braces.end" }
+                },
+                "patterns": [
+                    {
+                        "name": "keyword.control.include",
+                        "match": "!include",
+                        "comment": "The !include keyword"
+                    },
+                    {
+                        "name": "keyword.other.include-type",
+                        "match": "\\b(source|data)\\b",
+                        "comment": "The include type"
+                    },
+                    {
+                        "name": "string.quoted.include-path",
+                        "match": "\"[^\"]+\"",
+                        "comment": "The included file path"
+                    }
+                ]
+                }
+            ]
+        },
+
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line",
+                    "begin": "(?i)\\s*REM",
+                    "end": "$",
+                    "comment": "Single line comment"
+                },
+                {
+                    "name": "comment.line",
+                    "begin": "^\\s*(#|;)",
+                    "end": "$",
+                    "comment": "Single line comment"
+                }
+            ]
+        },
+
+        "strings": {
+            "name": "string.quoted.double",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "support.function.token",
+                    "begin": "\\{",
+                    "end": "\\}",
+                    "beginCaptures": { "0": { "name": "punctuation.section.braces.begin" } },
+                    "endCaptures": { "0": { "name": "punctuation.section.braces.end" } },
+                    "patterns": [
+                        {
+                            "name": "constant.numeric.token-prefix",
+                            "match": "\\b[0-9]+\\b"
+                        },
+                        {
+                            "name": "support.function.token-name",
+                            "match": "\\b(ctrl-a|ctrl-b|stop|ctrl-d|wht|ctrl-f|ctrl-g|dish|ensh|\\n|ctrl-k|ctrl-l|swlc|ctrl-o|ctrl-p|down|rvon|home|del|ctrl-u|ctrl-v|ctrl-w|ctrl-x|ctrl-y|ctrl-z|esc|red|rght|grn|blu|orng|f1|f3|f5|f7|f2|f4|f6|f8|sret|swuc|blk|up|rvof|clr|inst|brn|lred|gry1|gry2|lgrn|lblu|gry3|pur|left|yel|cyn|shift-space|cbm-k|cbm-i|cbm-t|cbm-@|cbm-g|cbm-+|cbm-m|cbm-pound|shift-pound|cbm-n|cbm-q|cbm-d|cbm-z|cbm-s|cbm-p|cbm-a|cbm-e|cbm-r|cbm-w|cbm-h|cbm-j|cbm-l|cbm-y|cbm-u|cbm-o|shift-@|cbm-f|cbm-c|cbm-x|cbm-v|cbm-b|shift-*|shift-a|shift-b|shift-c|shift-d|shift-e|shift-f|shift-g|shift-h|shift-i|shift-j|shift-k|shift-l|shift-m|shift-n|shift-o|shift-p|shift-q|shift-r|shift-s|shift-t|shift-u|shift-v|shift-w|shift-x|shift-y|shift-z|shift-+|cbm--|shift--|shift-\\^|cbm-*|cbm-\\^)\\b"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "tokens": {
+            "patterns": [
+                {
+                    "name": "support.function.token",
+                    "begin": "\\{",
+                    "end": "\\}",
+                    "beginCaptures": { "0": { "name": "punctuation.section.braces.begin" } },
+                    "endCaptures": { "0": { "name": "punctuation.section.braces.end" } },
+                    "comment": "Generic tokens"
+                }
+            ]
+        },
+
+        "labels": {
+            "patterns": [
+                {
+                    "name": "meta.function.label",
+                    "match": "(?i)^\\s*([_A-Za-z][_A-Za-z0-9-]*)\\s*:",
+                    "comment": "BPP+ labels"
+
+                }
+            ]
+        },
+
+        "label_references": {
+        "patterns": [
+            {
+            "name": "meta.function.label-reference",
+            "match": "(?i)(?<=\\b(?:goto|gosub)\\s+)([_]?[A-Za-z][_A-Za-z0-9-]*(?:\\.[_]?[A-Za-z][_A-Za-z0-9-]*)*)",
+            "comment": "References to BPP+ labels after GOTO/GOSUB, including dotted labels, optional leading underscore"
+            }
+        ]
+        },
+
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.instructions.general.abbr",
+                    "match": "\\s*(cL|cM|cO|dA|dE|dI|gE|iN|lE|lI|lO|oP|pO|pR|rE|reS|rU|sA|sT|sU|sY|tO|vE|wA|\\?)"
+                },
+                {
+                    "name": "keyword.control.abbr",
+                    "match": "\\s*(rE|reS|gO|goS|eN|tH|fO|nE|stE)"
+                },
+                {
+                    "name": "support.function.string",
+                    "match": "(?i)\\s*(RIGHT\\$|LEFT\\$|MID\\$|STR\\$|CHR\\$|\\$\\$|%%|NRM)"
+                },
+                {
+                    "name": "support.variables",
+                    "match": "(?i)\\s*(ST|TI|TI\\$)\\b"
+                },
+                {
+                    "name": "keyword.control",
+                    "match": "(?i)\\s*(END\\sPROC|END\\sLOOP|REPEAT|RESUME|RETURN|CGOTO|UNTIL|GOSUB|PROC|CALL|EXEC|EXIT|LOOP|ELSE|CONT|STEP|GOTO|GO\\s+TO|THEN|NEXT|STEP|RUN|CLR|SYS|SUB|END|FOR|DO|IF)"
+                },
+                {
+                    "name": "keyword.instructions.general",
+                    "match": "(?i)\\s*(ENVELOPE|END\\sPROC|END\\sLOOP|ON\\sERROR|NO\\sERROR|GRAPHICS|RENUMBER|MOB\\sSET|DISABLE|RETRACE|RLOCMOB|BCKGNDS|LOW\\sCOL|DISPLAY|RESTORE|HI\\sCOL|RIGHTB|RIGHTW|COLOUR|BFLASH|REPEAT|CENTRE|GLOBAL|ON\\sKEY|RESUME|SECURE|DISAPA|CIRCLE|OPTION|INSERT|DESIGN|HRDCPY|DETECT|INPUT#|PRINT#|VERIFY|RETURN|RIGHT\\$|HIRES|BLOCK|PLACE|LEFTW|LEFTB|DOWNB|DOWNW|MULTI|MUSIC|FLASH|CGOTO|FETCH|UNTIL|RESET|DELAY|LOCAL|RCOMP|TRACE|INKEY|SOUND|PAUSE|SCRSV|SCRLD|PAINT|MERGE|CHECK|ERROR|CLOSE|INPUT|PRINT|GOSUB|LEFT\\$|PLOT|LINE|FCHR|FCOL|FILL|DRAW|CHAR|MOVE|MMOB|PLAY|WAVE|PROC|CALL|EXEC|EXIT|LOOP|ELSE|PAGE|DUMP|FIND|AUTO|INST|TEST|PENX|PENY|CMOB|ANGL|COLD|TEXT|CSET|DISK|COPY|SAVE|CONT|OPEN|STOP|POKE|STEP|DATA|READ|LIST|LOAD|WAIT|PEEK|GET#|GOTO|GO\\s+TO|THEN|NEXT|STEP|EXOR|FRAC|CHR\\$|MID\\$|STR\\$|REC|ROT|INV|UPB|UPW|USE|CLS|MAP|DIR|OLD|JOY|DUP|LIN|POT|MOB|OFF|ARC|VOL|KEY|MEM|OUT|RUN|CLR|CMD|SYS|DEF|DIM|LET|GET|NEW|SUB|AND|NOT|ABS|ASC|POS|ATN|RND|COS|SGN|EXP|SIN|SQR|FRE|TAN|INT|USR|LEN|VAL|LOG|END|FOR|DIV|MOD|DO|AT|X!|D!|OR|TO|ON|FN|IF)"
+                }
+            ]
+        },
+
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.character.escape",
+                    "match": "^\\s*(\\d+)", 
+                    "comment": "Line numbers at the start of the line"
+                },
+                {
+                    "name": "constant.numeric",
+                    "match": "(\\d+|\\$[0-9a-fA-F]+|%[01])",
+                    "comment": "constant.numeric"
+                }
+            ]
+        },
+
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other",
+                    "match": "(?i)\\s*([A-Z][0-9]*[$%]?)"
+                }
+            ]
+        },
+
+        "statement_chaining": {
+            "patterns": [
+                {
+                    "name": "string.regexp.statement-chaining",
+                    "match": "\\\\$",
+                    "comment": "Backslash at end of line for BPP+ statement chaining"
+                }
+            ]
+        }
+    }
+}
