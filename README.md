@@ -20,24 +20,22 @@ This repository provides a syntax highlighting definition for **BPP+ BASIC v2**.
 
 ---
 
-## Installation
+## Installation and usage
 
-1. Download the `tmLanguage.json` file from this repository.  
-2. Place the file in your editor’s syntax directory:  
-   - **VS Code**: `~/.vscode/extensions/`  
-3. Restart your editor.  
-4. Open a `.bas` or `.bpp`  file to see syntax highlighting in action.  
+This grammar is designed as a Visual Studio Code extension. Follow these steps to use it:
 
----
+1. **Install the extension manually**:
+   - Clone or download the repository from [Commodore BPP+ repository](https://github.com/hakkanpersson/bpp-plus).
+   - Open VS Code.
+   - Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X` on Mac).
+   - Click the three-dot menu in the top-right corner and choose **Install from VSIX...**.
+   - Select the downloaded `.vsix` file.
 
-## Usage
+2. **Apply the syntax**:
+   - Open a file with the `.bpp` or `.bpp+` extension.
+   - VS Code should automatically detect the file type and apply the `Commodore BPP+ BASIC V2` syntax highlighting.
+   - If not, click the language mode in the bottom-right corner and select **Commodore BPP+ BASIC V2**.
 
-- Open any BPP+ file.  
-- The syntax highlighting will automatically apply to recognized constructs.  
-- Variables with `$` or `%` suffix will be highlighted consistently.  
-- Braced tokens inside strings will correctly highlight numeric values, alphanumeric tokens, and operators (`-+*^@.`).  
-
----
 
 ## File Structure
 
