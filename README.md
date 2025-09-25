@@ -1,8 +1,8 @@
 # Commodore BPP+ BASIC v2 Syntax Highlighting
 
-This repository provides a syntax highlighting definition for **BPP+ BASIC v2**. It is designed to enhance readability and editing experience for BPP+ files, including Commodore 64 BASIC v2 code.
+This repository provides a syntax highlighting definition for **BPP+ BASIC v2**. It enhances readability and makes editing BPP+ files, including Commodore 64 BASIC v2 code, easier in Visual Studio Code.
 
----
+The grammar is based on the original BPP+ preprocessor but focuses on syntax highlighting. It highlights modern BPP+ features such as labels, scopes, include directives, and user-defined functions, making CBM BASIC programs clearer and easier to navigate.
 
 ## Features
 
@@ -17,8 +17,6 @@ This repository provides a syntax highlighting definition for **BPP+ BASIC v2**.
 - **Include Statements**: Supports BPP+ `!include` statements with type and path.  
 - **Comments**: Highlights BASIC `REM` and BPP+ `;` comments.  
 - **Statement Chaining**: Highlights backslash (`\`) at end of line for BPP+ statement chaining.  
-
----
 
 ## Installation and usage
 
@@ -35,7 +33,6 @@ This grammar is designed as a Visual Studio Code extension. Follow these steps t
    - Open a file with the `.bpp` or `.bpp+` extension.
    - VS Code should automatically detect the file type and apply the `Commodore BPP+ BASIC V2` syntax highlighting.
    - If not, click the language mode in the bottom-right corner and select **Commodore BPP+ BASIC V2**.
-
 
 ## File Structure
 
