@@ -3,69 +3,187 @@
     "scopeName": "source.bpp+basicv2",
 
     "patterns": [
-                {
-            "include": "#bppinclude"
+
+        {
+            "include": "#keywords_control"
+        },
+        {
+            "include": "#keywords_functions"
+        },
+        {
+            "include": "#user_functions"
+        },
+        {
+            "include": "#keywords_storage"
+        },
+        {
+            "include": "#keywords_io_disk"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#numbers_line"
+        },
+        {
+            "include": "#numbers_numeric"
         },
         {
             "include": "#comments"
         },
         {
+            "include": "#include_statements"
+        },
+        {
             "include": "#strings"
         },
         {
-            "include": "#tokens"
+            "include": "#statement_chaining"
         },
         {
             "include": "#labels"
         },
         {
-            "include": "#label_references"
-        },
-        {
-            "include": "#keywords"
-        },
-        {
-            "include": "#numbers"
+            "include": "#label_subroutine_calls"
         },
         {
             "include": "#variables"
-        },
-        {
-            "include": "#statement_chaining"
         }
-    ],
+     ],
 
     "repository": {
 
-        "bppinclude": {
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other",
+                    "comment": "BASIC v2 variable names including optional $ or %",
+                    "match": "(?i)\\b[A-Z][A-Z0-9]*[\\$%]?"
+                }
+            ]
+        },
+
+        "keywords_control": {
+            "patterns": [
+                {
+                    "name": "keyword.control",
+                    "comment": "BASIC v2 control statements",
+                    "match": "(?i)\\b(end|for|next|gosub|goto|if|then|step|stop|return|to|on)\\b"
+                }
+            ]
+        },
+
+        "keywords_functions": {
+            "patterns": [
+                {
+                    "name": "support.function",
+                    "comment": "BASIC v2 standard functions",
+                    "match": "(?i)\\b(abs|asc|atn|chr\\$|cos|exp|int|len|left\\$|mid\\$|peek|pos|rnd|right\\$|sgn|sin|sqr|tan|str\\$|usr|val)\\b"
+                }
+            ]
+        },
+
+        "user_functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.user",
+                    "comment": "BASIC v2 user-defined FN functions",
+                    "match": "(?i)\\b(DEF\\s+FN|FN)\\s+([A-Z][A-Z0-9_]*)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.control",
+                            "comment": "FN keyword"
+                        },
+                        "2": {
+                            "name": "entity.name.function.user",
+                            "comment": "User-defined function name"
+                        }
+                    }
+                }
+            ]
+        },
+
+        "keywords_storage": {
+            "patterns": [
+                {
+                    "name": "storage.modifier",
+                    "comment": "BASIC v2 variable declaration keywords",
+                    "match": "(?i)\\b(dim|data|let|def)\\b"
+                }
+            ]
+        },
+
+        "keywords_io_disk": {
+            "patterns": [
+                {
+                    "name": "keyword.io",
+                    "comment": "BASIC v2 I/O and disk operations",
+                    "match": "(?i)\\b(print|print#|input|input#|open|close|load|list|save|restore|read|get|get#|poke|peek|sys|run|verify|wait)\\b"
+                }
+            ]
+        },
+
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator",
+                    "comment": "BASIC v2 operators",
+                    "match": "(?i)(\\*|/|\\+|-|\\^|=|<>|<|>|<=|>=|and|or|not)"
+                }
+            ]
+        },
+
+        "numbers_line": {
+            "patterns": [
+                {
+                    "name": "constant.language",
+                    "comment": "BASIC v2 line numbers at the start of a line",
+                    "match": "^\\s*(\\d+)"
+                }
+            ]
+        },
+
+        "numbers_numeric": {
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "begin": "\\{\\s*!include\\s+",
-                    "beginCaptures": {
-                        "0": { "name": "punctuation.section.braces.begin" }
-                },
-                    "end": "\\s*\\}",
-                    "endCaptures": {
-                        "0": { "name": "punctuation.section.braces.end" }
-                },
-                "patterns": [
+                    "comment": "BASIC v2 numeric constants: decimal, hexadecimal ($...), or binary (%...)",
+                    "match": "(\\d+|\\$[0-9a-fA-F]+|%[01]+)"
+                }
+            ]
+        },
+
+        "include_statements": {
+            "patterns": [
                     {
-                        "name": "keyword.control.include",
-                        "match": "!include",
-                        "comment": "The !include keyword"
-                    },
-                    {
-                        "name": "keyword.other.include-type",
-                        "match": "\\b(source|data)\\b",
-                        "comment": "The include type"
-                    },
-                    {
-                        "name": "string.quoted.include-path",
-                        "match": "\"[^\"]+\"",
-                        "comment": "The included file path"
+                        "name": "meta.include.statement",
+                        "comment": "BPP+ include statements with type and file path, e.g., !include source \"../common/file.bpp\" or !include data \"file.bpp\"",
+                        "match": "(!include)\\s+(source|data)\\s+\"([^\"]+)\"",
+                            "captures": {
+                                "1": { "name": "keyword.control.include" },
+                                "2": { "name": "storage.type.include" },
+                                "3": { "name": "string.quoted.double.include" }
+                            }
                     }
-                ]
+            ]
+        },
+
+        "labels": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.basic",
+                    "comment": "BPP+ labels ending with a colon at start of line, allows letters, digits, and underscores, but skips BASIC keywords like NEXT",
+                    "match": "(?i)^\\s*(?!(?:next|return|stop|end)\\s*:)[_A-Za-z][_A-Za-z0-9]*:"
+                }
+            ]
+        },
+
+        "label_subroutine_calls": {
+            "patterns": [
+                {
+                    "name": "entity.name.function",
+                    "comment": "BPP+ subroutine names after GOSUB or GOTO, optionally with child using dot; allows spaces after commas",
+                    "match": "(?<=\\b(gosub|goto)\\s+)([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)?)(?:\\s*,\\s*([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)?))*"
                 }
             ]
         },
@@ -74,128 +192,58 @@
             "patterns": [
                 {
                     "name": "comment.line",
+                    "comment": "BASIC v2 single line comment starting with REM (case-insensitive)",
                     "begin": "(?i)\\s*REM",
-                    "end": "$",
-                    "comment": "Single line comment"
+                    "end": "$"
                 },
                 {
                     "name": "comment.line",
-                    "begin": "^\\s*(#|;)",
-                    "end": "$",
-                    "comment": "Single line comment"
+                    "comment": "BPP+ single line comment starting with ;",
+                    "begin": "^\\s*(;)",
+                    "end": "$"
                 }
             ]
         },
 
         "strings": {
-            "name": "string.quoted.double",
-            "begin": "\"",
-            "end": "\"",
+            "name": "string.quoted",
+            "comment": "Double or single quoted strings, may include braced tokens",
+            "begin": "['\"]",
+            "end": "['\"]",
             "patterns": [
                 {
-                    "name": "support.function.token",
+                    "name": "meta.token.braced",
+                    "comment": "Braced tokens inside strings, e.g., {XXX}, {XXX-Z}, {Y XXX-Z}",
                     "begin": "\\{",
                     "end": "\\}",
-                    "beginCaptures": { "0": { "name": "punctuation.section.braces.begin" } },
-                    "endCaptures": { "0": { "name": "punctuation.section.braces.end" } },
+                    "beginCaptures": {
+                        "0": { "name": "support.function.token.braces.begin" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "support.function.token.braces.end" }
+                    },
                     "patterns": [
                         {
-                            "name": "constant.numeric.token-prefix",
-                            "match": "\\b[0-9]+\\b"
+                            "name": "constant.numeric.token-count",
+                            "comment": "Numeric token inside braces",
+                            "match": "\\b\\d+\\b"
                         },
                         {
-                            "name": "support.function.token-name",
-                            "match": "\\b(ctrl-a|ctrl-b|stop|ctrl-d|wht|ctrl-f|ctrl-g|dish|ensh|\\n|ctrl-k|ctrl-l|swlc|ctrl-o|ctrl-p|down|rvon|home|del|ctrl-u|ctrl-v|ctrl-w|ctrl-x|ctrl-y|ctrl-z|esc|red|rght|grn|blu|orng|f1|f3|f5|f7|f2|f4|f6|f8|sret|swuc|blk|up|rvof|clr|inst|brn|lred|gry1|gry2|lgrn|lblu|gry3|pur|left|yel|cyn|shift-space|cbm-k|cbm-i|cbm-t|cbm-@|cbm-g|cbm-+|cbm-m|cbm-pound|shift-pound|cbm-n|cbm-q|cbm-d|cbm-z|cbm-s|cbm-p|cbm-a|cbm-e|cbm-r|cbm-w|cbm-h|cbm-j|cbm-l|cbm-y|cbm-u|cbm-o|shift-@|cbm-f|cbm-c|cbm-x|cbm-v|cbm-b|shift-*|shift-a|shift-b|shift-c|shift-d|shift-e|shift-f|shift-g|shift-h|shift-i|shift-j|shift-k|shift-l|shift-m|shift-n|shift-o|shift-p|shift-q|shift-r|shift-s|shift-t|shift-u|shift-v|shift-w|shift-x|shift-y|shift-z|shift-+|cbm--|shift--|shift-\\^|cbm-*|cbm-\\^)\\b"
+                            "name": "support.function.token",
+                            "comment": "Alphanumeric token including operators -+*^@. inside braces",
+                            "match": "[a-zA-Z_][a-zA-Z0-9_\\-+*^@\\.]*"
+                        },
+                        {
+                            "name": "text.whitespace",
+                            "comment": "Whitespace inside braced token",
+                            "match": "\\s+"
                         }
                     ]
-                }
-            ]
-        },
-
-        "tokens": {
-            "patterns": [
-                {
-                    "name": "support.function.token",
-                    "begin": "\\{",
-                    "end": "\\}",
-                    "beginCaptures": { "0": { "name": "punctuation.section.braces.begin" } },
-                    "endCaptures": { "0": { "name": "punctuation.section.braces.end" } },
-                    "comment": "Generic tokens"
-                }
-            ]
-        },
-
-        "labels": {
-            "patterns": [
-                {
-                    "name": "meta.function.label",
-                    "match": "(?i)^\\s*([_A-Za-z][_A-Za-z0-9-]*)\\s*:",
-                    "comment": "BPP+ labels"
-
-                }
-            ]
-        },
-
-        "label_references": {
-        "patterns": [
-            {
-            "name": "meta.function.label-reference",
-            "match": "(?i)(?<=\\b(?:goto|gosub)\\s+)([_]?[A-Za-z][_A-Za-z0-9-]*(?:\\.[_]?[A-Za-z][_A-Za-z0-9-]*)*)",
-            "comment": "References to BPP+ labels after GOTO/GOSUB, including dotted labels, optional leading underscore"
-            }
-        ]
-        },
-
-
-        "keywords": {
-            "patterns": [
-                {
-                    "name": "keyword.instructions.general.abbr",
-                    "match": "\\s*(cL|cM|cO|dA|dE|dI|gE|iN|lE|lI|lO|oP|pO|pR|rE|reS|rU|sA|sT|sU|sY|tO|vE|wA|\\?)"
                 },
                 {
-                    "name": "keyword.control.abbr",
-                    "match": "\\s*(rE|reS|gO|goS|eN|tH|fO|nE|stE)"
-                },
-                {
-                    "name": "support.function.string",
-                    "match": "(?i)\\s*(RIGHT\\$|LEFT\\$|MID\\$|STR\\$|CHR\\$|\\$\\$|%%|NRM)"
-                },
-                {
-                    "name": "support.variables",
-                    "match": "(?i)\\s*(ST|TI|TI\\$)\\b"
-                },
-                {
-                    "name": "keyword.control",
-                    "match": "(?i)\\s*(END\\sPROC|END\\sLOOP|REPEAT|RESUME|RETURN|CGOTO|UNTIL|GOSUB|PROC|CALL|EXEC|EXIT|LOOP|ELSE|CONT|STEP|GOTO|GO\\s+TO|THEN|NEXT|STEP|RUN|CLR|SYS|SUB|END|FOR|DO|IF)"
-                },
-                {
-                    "name": "keyword.instructions.general",
-                    "match": "(?i)\\s*(ENVELOPE|END\\sPROC|END\\sLOOP|ON\\sERROR|NO\\sERROR|GRAPHICS|RENUMBER|MOB\\sSET|DISABLE|RETRACE|RLOCMOB|BCKGNDS|LOW\\sCOL|DISPLAY|RESTORE|HI\\sCOL|RIGHTB|RIGHTW|COLOUR|BFLASH|REPEAT|CENTRE|GLOBAL|ON\\sKEY|RESUME|SECURE|DISAPA|CIRCLE|OPTION|INSERT|DESIGN|HRDCPY|DETECT|INPUT#|PRINT#|VERIFY|RETURN|RIGHT\\$|HIRES|BLOCK|PLACE|LEFTW|LEFTB|DOWNB|DOWNW|MULTI|MUSIC|FLASH|CGOTO|FETCH|UNTIL|RESET|DELAY|LOCAL|RCOMP|TRACE|INKEY|SOUND|PAUSE|SCRSV|SCRLD|PAINT|MERGE|CHECK|ERROR|CLOSE|INPUT|PRINT|GOSUB|LEFT\\$|PLOT|LINE|FCHR|FCOL|FILL|DRAW|CHAR|MOVE|MMOB|PLAY|WAVE|PROC|CALL|EXEC|EXIT|LOOP|ELSE|PAGE|DUMP|FIND|AUTO|INST|TEST|PENX|PENY|CMOB|ANGL|COLD|TEXT|CSET|DISK|COPY|SAVE|CONT|OPEN|STOP|POKE|STEP|DATA|READ|LIST|LOAD|WAIT|PEEK|GET#|GOTO|GO\\s+TO|THEN|NEXT|STEP|EXOR|FRAC|CHR\\$|MID\\$|STR\\$|REC|ROT|INV|UPB|UPW|USE|CLS|MAP|DIR|OLD|JOY|DUP|LIN|POT|MOB|OFF|ARC|VOL|KEY|MEM|OUT|RUN|CLR|CMD|SYS|DEF|DIM|LET|GET|NEW|SUB|AND|NOT|ABS|ASC|POS|ATN|RND|COS|SGN|EXP|SIN|SQR|FRE|TAN|INT|USR|LEN|VAL|LOG|END|FOR|DIV|MOD|DO|AT|X!|D!|OR|TO|ON|FN|IF)"
-                }
-            ]
-        },
-
-        "numbers": {
-            "patterns": [
-                {
-                    "name": "constant.character.escape",
-                    "match": "^\\s*(\\d+)", 
-                    "comment": "Line numbers at the start of the line"
-                },
-                {
-                    "name": "constant.numeric",
-                    "match": "(\\d+|\\$[0-9a-fA-F]+|%[01])",
-                    "comment": "constant.numeric"
-                }
-            ]
-        },
-
-        "variables": {
-            "patterns": [
-                {
-                    "name": "variable.other",
-                    "match": "(?i)\\s*([A-Z][0-9]*[$%]?)"
+                    "name": "string.character",
+                    "comment": "Any other character inside the string",
+                    "match": "."
                 }
             ]
         },
@@ -203,7 +251,7 @@
         "statement_chaining": {
             "patterns": [
                 {
-                    "name": "string.regexp.statement-chaining",
+                    "name": "invalid.illegal.statement-chaining",
                     "match": "\\\\$",
                     "comment": "Backslash at end of line for BPP+ statement chaining"
                 }
