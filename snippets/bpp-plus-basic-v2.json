@@ -1,0 +1,167 @@
+{
+    "ABS(n) - Numeric function": {
+        "prefix": "abs",
+        "body": [
+            "abs(${1:numeric})"
+        ],
+        "description": "Returns the absolute value of a numeric expression (floating point only)."
+    },
+    "ASC(x) - Numerical Function": {
+        "prefix": "asc",
+        "body": [
+            "asc(${1:string})"
+        ],
+        "description": "Returns the ASCII code of the first character in a string. Throws ?ILLEGAL QUANTITY ERROR if string is empty."
+    },
+    "ATN(n) - Numeric function": {
+        "prefix": "atn",
+        "body": [
+            "atn(${1:numeric})"
+        ],
+        "description": "Returns the arc tangent (inverse of TAN) of a numeric value, result in radians. Throws ?TYPE MISMATCH, ?OVERFLOW, or ?SYNTAX ERROR on invalid input."
+    },
+    "CHR$(n) - String function": {
+        "prefix": "chr",
+        "body": [
+            "chr$(${1:numeric})"
+        ],
+        "description": "Converts a number (0–255) to an ASCII character string. Inverse of ASC. Throws ?ILLEGAL QUANTITY, ?TYPE MISMATCH, or ?SYNTAX ERROR on invalid input.",
+        "scope": "source.bpp+basicv2"
+    },
+    "CLOSE(n) - Command": {
+        "prefix": "close",
+        "body": [
+            "close ${1:logical-file-number}"
+        ],
+        "description": "Close an open file/device (0–255); flushes buffer to disk/tape; errors: ?ILLEGAL QUANTITY if out of range.",
+        "scope": "source.bpp+basicv2"
+    },
+    "COS(n) - Numeric function": {
+        "prefix": "cos",
+        "body": [
+            "cos(${1:numeric})"
+        ],
+        "description": "Returns cosine of angle in radians; errors: ?TYPE MISMATCH (non-numeric), ?OVERFLOW (out of range), ?SYNTAX (missing/extra arguments).",
+        "scope": "source.bpp+basicv2"
+    },
+    "DIM Array - Single dimension": {
+        "prefix": "dim",
+        "body": [
+            "dim ${1:variable}(${2:d1})"
+        ],
+        "description": "Declare a new array with one dimension. Add additional arrays manually if needed.",
+        "scope": "source.bpp+basicv2"
+    },
+    "EXP(n) - Numeric function": {
+        "prefix": "exp",
+        "body": [
+            "exp(${1:numeric})"
+        ],
+        "description": "Numeric function EXP(X) evaluates e raised to the power of the given number.",
+        "scope": "source.bpp+basicv2"
+    },
+    "GOSUB <label>, Command, Basic v2 & BPP+": {
+        "prefix": "gosub",
+        "body": [
+            "gosub ${1:label}"
+        ],
+        "description": "Insert GOSUB statement with a label placeholder",
+        "scope": "source.bpp+basicv2"
+    },
+
+    "GOTO <label>, Command, Basic v2 & BPP+": {
+        "prefix": "goto",
+        "body": [
+            "goto ${1:label}"
+        ],
+        "description": "Insert GOTO statement with a label placeholder",
+        "scope": "source.bpp+basicv2"
+    },
+    "LEFT$(s,n) - String function": {
+        "prefix": "left",
+        "body": [
+            "left$(${1:string},${2:integer})"
+        ],
+        "description": "Returns the leftmost n characters of a string. Errors: ?ILLEGAL QUANTITY (0–255), ?TYPE MISMATCH (wrong type), ?SYNTAX (missing args).",
+        "scope": "source.bpp+basicv2"
+    },
+    "LEN(s) - Numeric function": {
+        "prefix": "len",
+        "body": [
+            "len(${1:string})"
+        ],
+        "description": "Returns the number of characters in a string (0–255). Errors: ?TYPE MISMATCH (non-string), ?STRING TOO LONG (over 255), ?SYNTAX (missing or extra arguments).",
+        "scope": "source.bpp+basicv2"
+    },
+
+    "LOG(n) - Numeric function": {
+        "prefix": "log",
+        "body": [
+            "log(${1:numeric})"
+        ],
+        "description": "Natural logarithm of a numeric value. Errors: ?ILLEGAL QUANTITY (≤0), ?OVERFLOW (too large), ?SYNTAX (missing argument).",
+        "scope": "source.bpp+basicv2"
+    },
+    "MID$(s,start[,length]) - String function": {
+        "prefix": "mid",
+        "body": [
+            "mid$(${1:string},${2:start},${3:length})"
+        ],
+        "description": "Returns a substring starting at 'start' position with optional 'length'. Errors: ?ILLEGAL QUANTITY (0–255), ?TYPE MISMATCH (wrong type), ?SYNTAX (missing args).",
+        "scope": "source.bpp+basicv2"
+    },
+    "POKE(addr,byte) - Command": {
+        "prefix": "poke",
+        "body": [
+            "poke ${1:address},${2:value}"
+        ],
+        "description": "Sets the contents of memory at the given address (0–65535) to a byte value (0–255). Errors: ?ILLEGAL QUANTITY if either value is out of range. Caution: Incorrect usage may corrupt memory or lock the system.",
+        "scope": "source.bpp+basicv2"
+    },
+    "PEEK(addr) - Integer function": {
+        "prefix": "peek",
+        "body": [
+            "peek(${1:address})"
+        ],
+        "description": "Returns the contents of memory at the given address (0–65535). Result is 0–255. Errors: ?ILLEGAL QUANTITY if address is out of range.",
+        "scope": "source.bpp+basicv2"
+    },
+    "REM [text] - Comment, BASIC v2": {
+        "prefix": "rem",
+        "body": [
+            "rem ${1:comment}"
+        ],
+        "description": "Insert a REM comment. Everything after REM on the line is ignored by the interpreter."
+    },
+    "RIGHT$(s,n) - String function": {
+        "prefix": "right",
+        "body": [
+            "right$(${1:string},${2:integer})"
+        ],
+        "description": "Returns the rightmost n characters of a string. Errors: ?ILLEGAL QUANTITY (0–255), ?TYPE MISMATCH (wrong type), ?SYNTAX (missing args).",
+        "scope": "source.bpp+basicv2"
+    },
+    "SGN(n) - Numeric function": {
+        "prefix": "sgn",
+        "body": [
+            "sgn(${1:numeric})"
+        ],
+        "description": "Returns -1 for negative numbers, 0 for zero, 1 for positive numbers; errors: ?TYPE MISMATCH (non-numeric), ?OVERFLOW (out of range), ?SYNTAX (missing argument)."
+    },
+    "!INCLUDE SOURCE, File function": {
+        "prefix": "!include source",
+        "body": [
+            "!include source \"$1\""
+        ],
+        "description": "Insert a BPP+ source include statement",
+        "scope": "source.bpp+basicv2"
+    },
+    "!INCLUDE DATA, File function": {
+        "prefix": "!include data",
+        "body": [
+            "!include data \"$1\""
+        ],
+        "description": "Insert a BPP+ data include statement",
+        "scope": "source.bpp+basicv2"
+    }
+}

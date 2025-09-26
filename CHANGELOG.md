@@ -1,7 +1,56 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-via backslash (`\`) at line end.
+## [0.0.4] - 2025-09-26
+
+### Added
+- **Numeric function snippets**:
+  - `ABS(n)`: Returns the absolute value of a numeric expression (floating point only).  
+  - `ATN(n)`: Arc tangent of a numeric value, result in radians.  
+  - `COS(n)`: Cosine of an angle in radians.  
+  - `EXP(n)`: e raised to the power of the given number.  
+  - `LEN(s)`: Returns number of characters in a string (0–255).  
+  - `LOG(n)`: Natural logarithm of a numeric value.  
+  - `SGN(n)`: Returns -1, 0, or 1 depending on sign of numeric value.  
+
+- **String function snippets**:
+  - `ASC(x)`: Returns ASCII code of first character in a string.  
+  - `CHR$(n)`: Converts a number (0–255) to ASCII character.  
+  - `LEFT$(s,n)`: Returns leftmost `n` characters of a string.  
+  - `MID$(s,start[,length])`: Returns substring starting at `start` with optional `length`.  
+  - `RIGHT$(s,n)`: Returns rightmost `n` characters of a string.  
+
+- **Command snippets**:
+  - `CLOSE(n)`: Closes open file/device (0–255) and flushes buffer.  
+  - `DIM Array`: Declare a new array with one dimension. Additional arrays added manually.  
+  - `REM [text]`: Insert a REM comment; ignored by interpreter.  
+
+### Changed
+- Snippet scope updated to `"source.bpp+basicv2"` for all BASIC v2 functions and commands.  
+
+- **Numeric function snippets**:
+  - `PEEK(addr)`: Returns contents of memory at given address (0–65535).  
+
+- **Command snippets**:
+  - `GOTO <label>`: Inserts GOTO statement with placeholder.  
+  - `GOSUB <label>`: Inserts GOSUB statement with placeholder.  
+  - `POKE(addr,byte)`: Sets memory at given address (0–65535) to byte value (0–255).  
+
+- **BPP+ include snippets**:
+  - `!include source "filename"`: Insert BPP+ source include inside `{}`.  
+  - `!include data "filename"`: Insert BPP+ data include inside `{}`.  
+
+## [0.0.3] - 2025-09-26
+
+### Added
+- **Auto-closing pairs**:  
+  - `{ }` for braced tokens.
+  - `" "` for double-quoted strings.  
+  - `( )` for parentheses.  
+- **Snippets for `!include` statements**: Inserts `!include source "filename"` and `!include data "filename"` inside `{}`.  
+- **GOTO snippet**: Inserts `GOTO` with a placeholder for the label name.  
+- **GOSUB snippet**: Inserts `GOSUB` with a placeholder for the label name.  
+- **POKE/PEEK snippets**: Inserts `POKE address,value` or `PEEK(address)` for memory operations.  
 
 ## [0.0.2] - 2025-09-25
 
@@ -21,7 +70,7 @@ via backslash (`\`) at line end.
   - Double-quoted strings with support for braced tokens like `{XXX}`, `{XXX-Z}`, `{5 XXX-*}`.
   - `!include` statements with type and path.
   - BASIC `REM` and BPP+ `;` comments.
-  - Statement chaining 
+  - Statement chaining via backslash (`\`) at line end.
 
 ---
 
