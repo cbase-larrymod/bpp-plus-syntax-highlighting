@@ -2,7 +2,7 @@
     "name": "bpp-plus-basic-v2-syntax",
     "displayName": "BPP+ BASIC v2 Syntax Highlighting",
     "description": "Syntax highlighting for Commodore 64 BASIC v2 and BPP+",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "Hakan Persson Tence",
     "engines": {
         "vscode": "^1.50.0"
