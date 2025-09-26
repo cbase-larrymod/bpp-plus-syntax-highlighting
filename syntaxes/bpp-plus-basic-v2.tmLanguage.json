@@ -206,10 +206,10 @@
         },
 
         "strings": {
-            "name": "string.quoted",
-            "comment": "Double or single quoted strings, may include braced tokens",
-            "begin": "['\"]",
-            "end": "['\"]",
+            "name": "string.quoted.double",
+                "comment": "Double-quoted strings, may include braced tokens (single quotes are treated as normal characters)",
+            "begin": "[\"]",
+            "end": "[\"]",
             "patterns": [
                 {
                     "name": "meta.token.braced",
