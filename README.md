@@ -13,26 +13,83 @@ The grammar is based on the original BPP+ preprocessor but focuses on syntax hig
 - **Numbers**: Differentiates line numbers, numeric constants (decimal, hexadecimal `$...`, binary `%...`).  
 - **Subroutine Calls**: Detects `GOSUB` and `GOTO` calls, including multiple comma-separated calls and optional child dot notation.  
 - **Labels**: Recognizes BPP+ labels at the start of a line, while skipping BASIC keywords.  
-- **Strings**: Handles double and single quoted strings, including braced tokens like `{XXX}`, `{XXX-Z}`, or `{5 XXX-*}`.  
-- **Include Statements**: Supports BPP+ `!include` statements with type and path.  
+- **Strings**: Handles only double-quoted strings, including braced tokens such as `{n XXX}`, `{XXX-Y}`, or `{n XXX-*|^|@}`, where `n` is a numeric value indicating repetition. The `|` denotes alternatives, so `*`, `^`, or `@` etc. may be used.
+- **Include Statements**: Supports BPP+ `!include` statements with type (source or data) and path.  
 - **Comments**: Highlights BASIC `REM` and BPP+ `;` comments.  
 - **Statement Chaining**: Highlights backslash (`\`) at end of line for BPP+ statement chaining.  
+- **Snippets**: Provides code snippets for common BASIC v2 and BPP+ commands and functions, including numeric and string functions (`ABS`, `ASC`, `ATN`, `CHR$`, `COS`, `EXP`, `LEN`, `LEFT$`, `MID$`, `RIGHT$`, `SGN`, `LOG`), file I/O commands (`OPEN`, `CLOSE`, `POKE`, `PEEK`), GOSUB/GOTO statements, REM comments, and `!include` statements. Snippets allow quick insertion and reduce typing errors.
 
 ## Installation and usage
 
 This grammar is designed as a Visual Studio Code extension. Follow these steps to use it:
 
 1. **Install the extension manually**:
-   - Clone or download the repository from [Commodore BPP+ repository](https://github.com/hakkanpersson/bpp-plus).
+   - Clone or download the repository from [BPP+ repository](https://github.com/hakkanpersson/bpp-plus).
    - Open VS Code.
    - Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X` on Mac).
    - Click the three-dot menu in the top-right corner and choose **Install from VSIX...**.
    - Select the downloaded `.vsix` file.
 
 2. **Apply the syntax**:
-   - Open a file with the `.bpp` or `.bpp+` extension.
-   - VS Code should automatically detect the file type and apply the `Commodore BPP+ BASIC V2` syntax highlighting.
-   - If not, click the language mode in the bottom-right corner and select **Commodore BPP+ BASIC V2**.
+   - Open a file with the `.bas` or `.bpp` extension.
+   - VS Code should automatically detect the file type and apply the `BPP+ BASIC v2` syntax highlighting.
+   - If not, click the language mode in the bottom-right corner and select **BPP+ BASIC v2**.
+
+## Packaging & Running
+
+You can test or distribute the extension using the following methods:
+
+### 1. Package the extension as a `.vsix` file
+
+1. Install `vsce` (Visual Studio Code Extension Manager) if you haven’t already:
+
+   ```bash
+   npm install -g vsce
+    ```
+
+2. From the root of the repository (where package.json resides), run:
+
+    ```bash
+    vsce package
+    ```
+
+   - This will generate a .vsix file (e.g., bpp-plus-basic-v2-syntax-0.0.4.vsix).
+
+3. Install the `.vsix` in VS Code manually:
+   - Open the Extensions view.
+   - Click the three-dot menu in the top-right corner → **Install from VSIX...**
+   - Select the `.vsix` file generated.
+
+### 2. Run the extension in development mode via F5
+
+If you want to test the extension without installing it permanently:
+
+1. Open the repository in VS Code.
+2. Create a `.vscode/launch.json` in your workspace with this template:
+
+
+```json
+{
+"version": "0.0.4",
+"configurations": [
+    {
+    "name": "Run Extension (Development)",
+    "type": "extensionHost",
+    "request": "launch",
+    "runtimeExecutable": "${execPath}",
+    "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "${workspaceFolder}/.vscode/replace-with-your-test-file.bpp"
+    ]
+    }
+]
+}
+```
+
+3. Press F5 to launch a new VS Code window with the extension loaded.
+   - This will allow you to test syntax highlighting, snippets, and other extension features without installing the .vsix.
+
+> Note: This process is for testing the extension only
 
 ## File Structure
 
@@ -49,4 +106,5 @@ The syntax definition covers the following categories:
 - **Strings**: Single and double quoted strings, including braced tokens.  
 - **Include Statements**: `!include source "..."` or `!include data "..."`.  
 - **Comments**: `REM` for BASIC and `;` for BPP+.  
-- **Statement Chaining**: Lines ending with backslash (`\`).
+- **Statement Chaining**: Lines ending with backslash (`\`).  
+- **Snippets**: Quick-insert templates for BASIC v2/BPP+ functions, statements, and includes.  

@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.0.4] - 2025-09-28
+
+### Added
+- `.vsix` package for manual installation in VS Code.
+- Instructions in the `README.md` for packaging and running the extension in development mode via F5.
+- Clarified syntax highlighting details and snippet usage.
+
 ## [0.0.4] - 2025-09-26
 
 ### Added
