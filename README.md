@@ -1,110 +1,209 @@
 # Commodore BPP+ BASIC v2 Syntax Highlighting
 
-This repository provides a syntax highlighting definition for **BPP+ BASIC v2**. It enhances readability and makes editing BPP+ files, including Commodore 64 BASIC v2 code, easier in Visual Studio Code.
+A Visual Studio Code extension providing comprehensive syntax highlighting and code snippets for **BPP+ BASIC v2**, enhancing readability and productivity when working with Commodore 64 BASIC v2 code and BPP+ preprocessor files.
 
-The grammar is based on the original BPP+ preprocessor but focuses on syntax highlighting. It highlights modern BPP+ features such as labels, scopes, include directives, and user-defined functions, making CBM BASIC programs clearer and easier to navigate.
+## Overview
+
+This extension provides syntax highlighting and code snippets for Commodore 64 BASIC v2 programming in Visual Studio Code. It's designed to work seamlessly with the BPP+ preprocessor, supporting modern features like labels, scopes, include directives, and user-defined functions.
+
+However, it can also be used independently for plain BASIC v2 development, making CBM BASIC programs clearer and easier to navigate.
 
 ## Features
 
-- **Full BASIC v2 Coverage**: Highlights control statements, standard functions, user-defined functions, variables, operators, I/O and disk commands, and more.  
-- **User-defined Functions**: Recognizes `DEF FN` and `FN` declarations with proper capture of the function name.  
-- **Variables**: Highlights variables, including optional `$` or `%` type suffix, making it easier to spot strings and integer variables.  
-- **Operators**: Supports standard BASIC operators and logical operators (`AND`, `OR`, `NOT`).  
-- **Numbers**: Differentiates line numbers, numeric constants (decimal, hexadecimal `$...`, binary `%...`).  
-- **Subroutine Calls**: Detects `GOSUB` and `GOTO` calls, including multiple comma-separated calls and optional child dot notation.  
-- **Labels**: Recognizes BPP+ labels at the start of a line, while skipping BASIC keywords.  
-- **Strings**: Handles only double-quoted strings, including braced tokens such as `{n XXX}`, `{XXX-Y}`, or `{n XXX-*|^|@}`, where `n` is a numeric value indicating repetition. The `|` denotes alternatives, so `*`, `^`, or `@` etc. may be used.
-- **Include Statements**: Supports BPP+ `!include` statements with type (source or data) and path.  
-- **Comments**: Highlights BASIC `REM` and BPP+ `;` comments.  
-- **Statement Chaining**: Highlights backslash (`\`) at end of line for BPP+ statement chaining.  
-- **Snippets**: Provides code snippets for common BASIC v2 and BPP+ commands and functions, including numeric and string functions (`ABS`, `ASC`, `ATN`, `CHR$`, `COS`, `EXP`, `LEN`, `LEFT$`, `MID$`, `RIGHT$`, `SGN`, `LOG`), file I/O commands (`OPEN`, `CLOSE`, `POKE`, `PEEK`), GOSUB/GOTO statements, REM comments, and `!include` statements. Snippets allow quick insertion and reduce typing errors.
+- **Full BASIC v2 Coverage**: Complete support for control statements, standard functions, user-defined functions, variables, operators, I/O and disk commands
+- **User-defined Functions**: Recognizes `DEF FN` and `FN` declarations with proper capture of function names
+- **Variables**: Highlights variables including optional `$` (string) or `%` (integer) type suffixes
+- **Operators**: Supports all standard BASIC operators and logical operators (`AND`, `OR`, `NOT`)
+- **Numbers**: Differentiates line numbers, numeric constants (decimal, hexadecimal `$...`, binary `%...`)
+- **Subroutine Calls**: Detects `GOSUB` and `GOTO` calls, including multiple comma-separated calls and optional child dot notation
+- **Labels**: Recognizes BPP+ labels at the start of lines while skipping BASIC keywords
+- **Strings**: Handles double-quoted strings, including braced tokens such as `{n XXX}`, `{XXX-Y}`, or `{n XXX-*|^|@}`, where `n` indicates repetition count and `|` denotes alternatives
+- **Include Statements**: Supports BPP+ `!include` statements with type (source or data) and path
+- **Comments**: Highlights BASIC `REM` and BPP+ `;` comments
+- **Statement Chaining**: Highlights backslash (`\`) at end of line for BPP+ statement chaining
 
-## Installation and usage
+</details>
 
-This grammar is designed as a Visual Studio Code extension. Follow these steps to use it:
+<details>
+<summary><strong>Code Snippets</strong></summary>
 
-1. **Install the extension manually**:
-   - Clone or download the repository from [BPP+ repository](https://github.com/hakkanpersson/bpp-plus).
-   - Open VS Code.
-   - Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X` on Mac).
-   - Click the three-dot menu in the top-right corner and choose **Install from VSIX...**.
-   - Select the downloaded `.vsix` file.
+The extension provides extensive code snippets for quick insertion of common BASIC v2 and BPP+ commands:
 
-2. **Apply the syntax**:
-   - Open a file with the `.bas` or `.bpp` extension.
-   - VS Code should automatically detect the file type and apply the `BPP+ BASIC v2` syntax highlighting.
-   - If not, click the language mode in the bottom-right corner and select **BPP+ BASIC v2**.
+### Mathematical Functions
 
-## Packaging & Running
+`abs`, `atn`, `cos`, `exp`, `int`, `log`, `rnd`, `sgn`, `sin`, `sqr`, `tan`
 
-You can test or distribute the extension using the following methods:
+### String Functions
 
-### 1. Package the extension as a `.vsix` file
+`asc`, `chr`, `left$`, `len`, `mid$`, `right$`, `str$`, `val`
 
-1. Install `vsce` (Visual Studio Code Extension Manager) if you haven’t already:
+### Control Flow
 
-   ```bash
-   npm install -g vsce
-    ```
+`for`, `fors` (with STEP), `gosub`, `goto`, `if`, `on`
 
-2. From the root of the repository (where package.json resides), run:
+### Variables & Data
 
-    ```bash
-    vsce package
-    ```
+`data`, `def` (function definition), `dim`, `fn`, `let`, `read`
 
-   - This will generate a .vsix file (e.g., bpp-plus-basic-v2-syntax-0.0.4.vsix).
+### Input/Output
 
-3. Install the `.vsix` in VS Code manually:
-   - Open the Extensions view.
-   - Click the three-dot menu in the top-right corner → **Install from VSIX...**
-   - Select the `.vsix` file generated.
+`cmd`, `get`, `get#`, `input`, `input#`, `print`, `print#`
 
-### 2. Run the extension in development mode via F5
+### File Operations
 
-If you want to test the extension without installing it permanently:
+`close`, `load`, `open`, `save`, `verify`
 
-1. Open the repository in VS Code.
-2. Create a `.vscode/launch.json` in your workspace with this template:
+### Memory & System
 
+`peek`, `poke`, `sys`, `usr`, `wait`, `fre`, `pos`
+
+### Screen Control
+
+`spc`, `tab`
+
+### Comments & Includes
+
+- `rem` - BASIC comment
+- `!include source` - BPP+ source include
+- `!include data` - BPP+ data include
+
+### Control Characters
+
+Over 50 Commodore 64 control character snippets including:
+
+**Colors**: `{wht}`, `{red}`, `{grn}`, `{blu}`, `{blk}`, `{cyn}`, `{pur}`, `{yel}`, `{orng}`, `{brn}`, `{lred}`, `{lblu}`, `{lgrn}`, `{gry1}`, `{gry2}`, `{gry3}`
+
+**Cursor Control**: `{up}`, `{down}`, `{left}`, `{rght}`, `{home}`, `{clr}`
+
+**Text Modes**: `{rvon}`, `{rvof}`, `{swuc}`, `{swlc}`
+
+**Editing**: `{del}`, `{inst}`
+
+**Function Keys**: `{f1}` through `{f8}`
+
+**Special Characters**: `{return}`, `{space}`, `{pi}`, `{esc}`, `{stop}`
+
+Each control character snippet is available in both token form (e.g., `{wht}`) and `chr$()` function form (e.g., `chr$(5)`).
+
+</details>
+
+## Installation
+
+1. **Clone the repository**:
+
+```bash
+git clone https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter.git
+cd bpp-plus-syntax-highlighter
+```
+
+2. **Package the extension**:
+
+Install `vsce` (Visual Studio Code Extension Manager) if needed:
+
+```bash
+npm install -g vsce
+```
+
+Package the extension:
+
+```bash
+vsce package
+```
+
+This generates a `.vsix` file (e.g., `bpp-plus-basic-v2-syntax-0.0.4.vsix`)
+
+3. **Install in VS Code**:
+
+- Open VS Code
+- Go to Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X` on Mac)
+- Click the three-dot menu (⋯) in the top-right corner
+- Select **Install from VSIX...**
+- Choose the generated `.vsix` file
+
+</details>
+
+## Usage
+
+1. Open a file with `.bas` or `.bpp` extension
+2. VS Code should automatically detect and apply **BPP+ BASIC v2** syntax highlighting
+3. If not, click the language mode indicator in the bottom-right corner and select **BPP+ BASIC v2**
+4. Start typing snippet prefixes to see available code snippets
+
+### Using Snippets
+
+Type the snippet prefix (e.g., `print`, `for`, `{red}`) and press `Tab` or `Enter` to insert the snippet. Use `Tab` to navigate between placeholder fields in multi-field snippets.
+
+## Development
+
+<details>
+<summary><strong>Testing in Development Mode</strong></summary>
+
+To test the extension without permanent installation:
+
+1. Open the repository in VS Code
+2. Create `.vscode/launch.json` with this configuration:
 
 ```json
 {
-"version": "0.0.4",
-"configurations": [
+  "version": "0.0.4",
+  "configurations": [
     {
-    "name": "Run Extension (Development)",
-    "type": "extensionHost",
-    "request": "launch",
-    "runtimeExecutable": "${execPath}",
-    "args": [
+      "name": "Run Extension (Development)",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
         "--extensionDevelopmentPath=${workspaceFolder}",
-        "${workspaceFolder}/.vscode/replace-with-your-test-file.bpp"
-    ]
+        "${workspaceFolder}/test-file.bpp"
+      ]
     }
-]
+  ]
 }
 ```
 
-3. Press F5 to launch a new VS Code window with the extension loaded.
-   - This will allow you to test syntax highlighting, snippets, and other extension features without installing the .vsix.
+3. Press `F5` to launch a new VS Code window with the extension loaded
+4. Test syntax highlighting, snippets, and other features
 
-> Note: This process is for testing the extension only
+> **Note**: This development mode is for testing purposes only and doesn't install the extension permanently.
 
-## File Structure
+</details>
 
-The syntax definition covers the following categories:
+<details>
+<summary><strong>Syntax Categories</strong></summary>
 
-- **Keywords Control**: `END`, `FOR`, `NEXT`, `GOSUB`, `GOTO`, `IF`, `THEN`, `STEP`, `STOP`, `RETURN`, `TO`, `ON`.  
-- **Keywords Functions**: `ABS`, `ASC`, `ATN`, `CHR$`, `COS`, `EXP`, `INT`, `LEN`, `LEFT$`, `MID$`, `PEEK`, `POS`, `RND`, `RIGHT$`, `SGN`, `SIN`, `SQR`, `TAN`, `STR$`, `USR`, `VAL`.  
-- **User Functions**: `DEF FN`, `FN` with captured function names.  
-- **Storage/Declaration Keywords**: `DIM`, `DATA`, `LET`, `DEF`.  
-- **I/O and Disk Keywords**: `PRINT`, `PRINT#`, `INPUT`, `INPUT#`, `OPEN`, `CLOSE`, `LOAD`, `LIST`, `SAVE`, `RESTORE`, `READ`, `GET`, `GET#`, `POKE`, `PEEK`, `SYS`, `RUN`, `VERIFY`, `WAIT`.  
-- **Operators**: `*`, `/`, `+`, `-`, `^`, `=`, `<>`, `<`, `>`, `<=`, `>=`, `AND`, `OR`, `NOT`.  
-- **Numbers**: Line numbers, decimal, hexadecimal `$...`, binary `%...`.  
-- **Labels and Subroutines**: BPP+ labels and calls after `GOSUB` or `GOTO`.  
-- **Strings**: Single and double quoted strings, including braced tokens.  
-- **Include Statements**: `!include source "..."` or `!include data "..."`.  
-- **Comments**: `REM` for BASIC and `;` for BPP+.  
-- **Statement Chaining**: Lines ending with backslash (`\`).  
-- **Snippets**: Quick-insert templates for BASIC v2/BPP+ functions, statements, and includes.  
+The grammar definition covers these categories:
+
+- **Keywords Control**: `END`, `FOR`, `NEXT`, `GOSUB`, `GOTO`, `IF`, `THEN`, `STEP`, `STOP`, `RETURN`, `TO`, `ON`
+- **Keywords Functions**: `ABS`, `ASC`, `ATN`, `CHR$`, `COS`, `EXP`, `INT`, `LEN`, `LEFT$`, `MID$`, `PEEK`, `POS`, `RND`, `RIGHT$`, `SGN`, `SIN`, `SQR`, `TAN`, `STR$`, `USR`, `VAL`
+- **User Functions**: `DEF FN`, `FN` with captured function names
+- **Storage/Declaration**: `DIM`, `DATA`, `LET`, `DEF`
+- **I/O and Disk**: `PRINT`, `PRINT#`, `INPUT`, `INPUT#`, `OPEN`, `CLOSE`, `LOAD`, `LIST`, `SAVE`, `RESTORE`, `READ`, `GET`, `GET#`, `POKE`, `PEEK`, `SYS`, `RUN`, `VERIFY`, `WAIT`
+- **Operators**: `*`, `/`, `+`, `-`, `^`, `=`, `<>`, `<`, `>`, `<=`, `>=`, `AND`, `OR`, `NOT`
+- **Numbers**: Line numbers, decimal, hexadecimal (`$...`), binary (`%...`)
+- **Labels and Subroutines**: BPP+ labels and calls after `GOSUB` or `GOTO`
+- **Strings**: Double-quoted strings with braced token support
+- **Include Statements**: `!include source "..."` or `!include data "..."`
+- **Comments**: `REM` (BASIC) and `;` (BPP+)
+- **Statement Chaining**: Lines ending with backslash (`\`)
+
+</details>
+
+## Release Notes
+
+### Version 0.0.4
+
+- Comprehensive syntax highlighting for BASIC v2 and BPP+ features
+- Over 50 code snippets for BASIC v2 commands and functions
+- Complete Commodore 64 control character support (both token and chr$() forms)
+- Support for BPP+ preprocessor directives and features
+- Enhanced string handling with braced token support
+
+For detailed release history, see [CHANGELOG.md](CHANGELOG.md)
+
+## Repository
+
+[https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter](https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter)
+
+## License
+
+See LICENSE file in the repository.
