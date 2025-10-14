@@ -2,6 +2,8 @@
 
 A Visual Studio Code extension providing comprehensive syntax highlighting and code snippets for **BPP+ BASIC v2**, enhancing readability and productivity when working with Commodore 64 BASIC v2 code and BPP+ preprocessor files.
 
+Part of the C\*Base Larry Mod 3.1 package.
+
 ## Overview
 
 This extension provides syntax highlighting and code snippets for Commodore 64 BASIC v2 programming in Visual Studio Code. It's designed to work seamlessly with the BPP+ preprocessor, supporting modern features like labels, scopes, include directives, and user-defined functions.
