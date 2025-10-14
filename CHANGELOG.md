@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.0.4] - 2025-10-14
+
+### Changed
+- All snippets functions excluding `!include source "filename.bpp"` and `!include data "filename.bpp"` has been exchanged with som modifications to the ones used in [COMMODORE 64 BASIC V2 Extension](https://github.com/gverduci/c64basicv2) all credits to "gverduci".
+- Moved the repo from private account to the **cbase-larrymod** organisation
+
+### Removed
+- `.vsix` package for manual installation in VS Code.
+
 ## [0.0.4] - 2025-09-28
 
 ### Added
