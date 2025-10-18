@@ -1,2 +1,9 @@
-.vscode
-bpp-plus-syntax.code-workspace
+# VS Code Extension build outputs
+dist/*.vsix
+
+# Local VS Code settings
+.vscode/launch.local.json
+
+# Temporary files
+*.tmp
+*.swp

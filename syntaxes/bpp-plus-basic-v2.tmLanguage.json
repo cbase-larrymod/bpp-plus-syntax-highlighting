@@ -3,7 +3,6 @@
     "scopeName": "source.bpp+basicv2",
 
     "patterns": [
-
         {
             "include": "#keywords_control"
         },
@@ -48,6 +47,9 @@
         },
         {
             "include": "#variables"
+        },
+        {
+            "include": "#extension_symbols"
         }
      ],
 
@@ -254,6 +256,16 @@
                     "name": "invalid.illegal.statement-chaining",
                     "match": "\\\\$",
                     "comment": "Backslash at end of line for BPP+ statement chaining"
+                }
+            ]
+        },
+
+        "extension_symbols": {
+            "patterns": [
+                {
+                    "name": "invalid.deprecated",
+                    "comment": "Highlight Prof. Plum’s BASIC symbols like @ and ←",
+                    "match": "[@←]"
                 }
             ]
         }

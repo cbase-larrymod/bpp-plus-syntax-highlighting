@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.0.5] - 2025-10-18
+
+### Added
+- Added syntax highlighting for Prof. Plum’s BASIC extensions:
+  - @
+  - ← (arrow-left)
+
+These symbols are now recognized and highlighted as special C\*Base BASIC v2 commands. 
+
+**Note**  
+The :: sequence forces the compiler **(Blitz)** to compile the following command as an extension. However, this is not required for the two extensions from Prof. Plum  `@` and  `←`.
+
+If you want to compile JiffyDOS commands or commands from other BASIC extensions such as Simons BASIC, you should use the double-colon (::) prefix.
+
 ## [0.0.4] - 2025-10-14
 
 ### Changed

@@ -2,22 +2,25 @@
     "name": "bpp-plus-basic-v2-syntax",
     "displayName": "BPP+ BASIC v2 Syntax Highlighting",
     "description": "Syntax highlighting for BPP+ preprocessor and Commodore 64 BASIC v2 code",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "Hakan Persson Tence",
     "repository": {
-      "type": "git",
-      "url": "https://github.com/hakkanpersson/bpp-plus.git"
-    },
-    "engines": {
-        "vscode": "^1.50.0"
-    },
-    "categories": ["Programming Languages"],
-    "contributes": {
-        "configurationDefaults": {
-            "[bpp+basicv2]": {
-                "editor.snippetSuggestions": "top"
-            }
+        "type": "git",
+        "url": "https://github.com/hakkanpersson/bpp-plus.git"
         },
+        "engines": {
+            "vscode": "^1.105.0"
+        },
+        "categories": ["Programming Languages"],
+        "scripts": {
+            "package": "mkdir -p dist && vsce package -o dist/"
+        },
+        "contributes": {
+            "configurationDefaults": {
+                "[bpp+basicv2]": {
+                    "editor.snippetSuggestions": "top"
+                }
+            },
         "languages": [
             {
                 "id": "bpp+basicv2",
