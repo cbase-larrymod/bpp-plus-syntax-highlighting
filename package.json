@@ -13,7 +13,7 @@
         },
         "categories": ["Programming Languages"],
         "scripts": {
-            "package": "mkdir -p dist && vsce package -o dist/"
+            "package": "node -e \"const fs=require('fs'); if(!fs.existsSync('dist'))fs.mkdirSync('dist')\" && vsce package -o dist/"
         },
         "contributes": {
             "configurationDefaults": {
