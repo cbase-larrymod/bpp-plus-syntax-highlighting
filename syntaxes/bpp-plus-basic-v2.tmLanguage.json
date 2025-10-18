@@ -263,7 +263,7 @@
         "extension_symbols": {
             "patterns": [
                 {
-                    "name": "invalid.deprecated",
+                    "name": "invalid.illegal.prof-plum-extensions",
                     "comment": "Highlight Prof. Plum’s BASIC symbols like @ and ←",
                     "match": "[@←]"
                 }
