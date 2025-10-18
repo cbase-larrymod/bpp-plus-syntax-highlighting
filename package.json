@@ -3,7 +3,7 @@
     "displayName": "BPP+ BASIC v2 Syntax Highlighting",
     "description": "Syntax highlighting for BPP+ preprocessor and Commodore 64 BASIC v2 code",
     "version": "0.0.5",
-    "publisher": "Hakan Persson Tence",
+    "publisher": "Skyhawk/Triad & Larry/R.O.L.E.",
     "repository": {
         "type": "git",
         "url": "https://github.com/hakkanpersson/bpp-plus.git"
