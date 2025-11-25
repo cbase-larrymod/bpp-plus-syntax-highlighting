@@ -1,0 +1,59 @@
+# Files and directories to exclude from the extension package
+
+# Development and build files
+.vscode/**
+.vscode-test/**
+**/.vscode/**
+.gitignore
+.gitattributes
+
+# Git files
+.git
+.github/**
+
+# Documentation that's not needed in the package
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE.md
+
+# Build output directory (the packaged .vsix files)
+dist/**
+*.vsix
+
+# NPM and package manager files
+node_modules/**
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Test files
+test/**
+tests/**
+**/*.test.js
+**/*.spec.js
+
+# CI/CD files
+.travis.yml
+.gitlab-ci.yml
+azure-pipelines.yml
+.github
+
+# IDE and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# TypeScript files (if you add them later)
+**/*.ts
+**/*.map
+tsconfig.json
+tslint.json
+
+# Misc
+*.log
+.eslintrc*
+.prettierrc*
+.editorconfig
