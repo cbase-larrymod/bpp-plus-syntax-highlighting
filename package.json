@@ -3,11 +3,11 @@
     "displayName": "BPP+ BASIC v2 Syntax Highlighting",
     "description": "Syntax highlighting for BPP+ preprocessor and Commodore 64 BASIC v2 code",
     "version": "0.0.5",
-    "publisher": "Skyhawk/Triad & Larry/R.O.L.E.",
+    "publisher": "cbase-larrymod",
     "repository": {
         "type": "git",
-        "url": "https://github.com/hakkanpersson/bpp-plus.git"
-        },
+        "url": "https://github.com/cbase-larrymod/bpp-plus-syntax-highlighting.git"
+    },
         "engines": {
             "vscode": "^1.105.0"
         },
