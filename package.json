@@ -8,6 +8,7 @@
         "type": "git",
         "url": "https://github.com/cbase-larrymod/bpp-plus-syntax-highlighting.git"
     },
+        "main": "./src/bpp-plus-basic-v2.js",
         "engines": {
             "vscode": "^1.105.0"
         },
@@ -25,7 +26,7 @@
             {
                 "id": "bpp+basicv2",
                 "aliases": ["BPP+ BASIC v2", "bpp+basicv2"],
-                "extensions": [".bpp"],
+                "extensions": [".bas", ".bpp"],
                 "configuration": "./language-configuration.json"
             }
         ],
