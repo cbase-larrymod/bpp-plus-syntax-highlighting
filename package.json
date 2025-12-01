@@ -9,6 +9,9 @@
         "url": "https://github.com/cbase-larrymod/bpp-plus-syntax-highlighting.git"
     },
         "main": "./src/bpp-plus-basic-v2.js",
+        "activationEvents": [
+            "onLanguage:bpp+basicv2"
+        ],
         "engines": {
             "vscode": "^1.105.0"
         },
