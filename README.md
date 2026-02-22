@@ -132,8 +132,8 @@ Expected:
 
 Complete documentation available:
 
-- **[Manual](manual.md)** - Comprehensive single-document reference
-- **[Overview](overview.md)** - Quick feature summary
+- **[Manual](docs/manual.md)** - Comprehensive single-document reference
+- **[Overview](docs/overview.md)** - Quick feature summary
 - **[Online documentation](https://cbasereferenceguide.github.io/development/bpp-plus-syntax-highlighting/)** - Full site with navigation
 
 ---
