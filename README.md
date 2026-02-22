@@ -1,18 +1,25 @@
-# BPP+ BASIC v2 Syntax Highlighting
+# BPP+ Syntax Highlighting
 
-Visual Studio Code extension for Commodore 64 BASIC v2 with BPP+ preprocessor support.
+**Visual Studio Code extension for Commodore 64 BASIC v2 and BPP+ preprocessor**
 
-**Version 0.0.5**
+Adds syntax highlighting and code snippets for BASIC v2 to VS Code. Works with standard line-numbered BASIC (.bas) and BPP+ preprocessor files (.bpp).
 
 Part of the **C\*Base Larry Mod v3.1** development package.
 
+---
+
 ## Features
 
-- **Complete BASIC v2 syntax highlighting** - All keywords, functions, operators, and control characters
-- **BPP+ preprocessor support** - Labels, scopes, includes, and statement chaining
-- **100+ code snippets** - Commands, functions, and PETSCII control characters in both token and chr$() forms
-- **Smart completion** - Tab-navigable placeholders for function parameters
-- **Zero configuration** - Works immediately with `.bas` and `.bpp` files
+- Syntax highlighting for all BASIC v2 keywords and functions
+- BPP+ feature highlighting (labels, scopes, includes, statement chaining)
+- 100+ code snippets with tab-navigable placeholders
+- PETSCII control characters in token (`{clr}`) and chr$ (`chr$(147)`) forms
+- Extension symbols (MCI commands: `@`, `←`, `£`)
+- Blitz! compiler directive support (`rem **`, `::`)
+- Theme compatibility (adapts to any VS Code color scheme)
+- Zero configuration required
+
+---
 
 ## Quick example
 
@@ -31,99 +38,140 @@ view_Opening:
 The extension highlights:
 - BASIC v2 keywords: `print`, `goto`, `gosub`
 - BPP+ labels: `view_Opening:`, `ui_Elements.render_Logo`
+- Scopes: `ui_Elements` namespace
 - Statement chaining: backslash (`\`) continuations
 - PETSCII tokens: `{clr}`, `{down}`, `{wht}`, `{rght}`
+
+---
 
 ## Installation
 
 ### Prerequisites
 
-- **Node.js** - Required for packaging. Download from [nodejs.org](https://nodejs.org/)
-- **VS Code Extension Manager (vsce)** - Install globally:
-  
-  ```bash
-  npm install -g @vscode/vsce
-  ```
+**Required:**
+- Visual Studio Code v1.105.0 or later
 
-### Building and Installing from Source
+**Optional (for building from source):**
+- Node.js v16.0 or later
+- vsce (VS Code Extension Manager)
+
+### Method 1: Install pre-compiled extension
+
+The repository includes a pre-compiled `.vsix` file in the `dist/` folder.
+
+1. Download or clone the repository:
+   ```bash
+   git clone https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter.git
+   cd bpp-plus-syntax-highlighter
+   ```
+
+2. Install the extension:
+
+   **Via VS Code UI:**
+   - Open Extensions panel (`Ctrl+Shift+X` or `Cmd+Shift+X`)
+   - Click `···` menu → **Install from VSIX**
+   - Navigate to `dist/bpp-plus-basic-v2-syntax-0.0.5.vsix`
+   - Click **Install**
+
+   **Via command line:**
+   ```bash
+   code --install-extension dist/bpp-plus-basic-v2-syntax-0.0.5.vsix
+   ```
+
+### Method 2: Build and install from source
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/cbase-larrymod/bpp-plus-syntax-highlighting.git
-   cd bpp-plus-syntax-highlighting
+   git clone https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter.git
+   cd bpp-plus-syntax-highlighter
    ```
 
-2. Package the extension:
+2. Install vsce:
    ```bash
-   vsce package
+   npm install -g @vscode/vsce
    ```
-   This creates `bpp-plus-basic-v2-syntax-0.0.5.vsix` in the current directory.
 
-   **Alternative options:**
+3. Build the extension:
    ```bash
-   # Organize output in a dist/ folder
-   vsce package -o dist/
-
-   # Or use npm script (automatically creates dist/ folder)
    npm run package
    ```
 
-3. Install the extension using one of these methods:
+   This creates `dist/bpp-plus-basic-v2-syntax-0.0.5.vsix`.
 
-   **Option A: VS Code UI**
-   - Open Extensions panel (`Ctrl+Shift+X` or `Cmd+Shift+X`)
-   - Click `···` menu → **Install from VSIX**
-   - Select `bpp-plus-basic-v2-syntax-0.0.5.vsix`
+4. Install using VS Code UI or command line (see Method 1 step 2).
 
-   **Option B: Command line**
-   ```bash
-   code --install-extension bpp-plus-basic-v2-syntax-0.0.5.vsix
-   ```
+### Method 3: Development mode
 
-### Development mode
+For testing and development:
 
 ```bash
-git clone https://github.com/cbase-larrymod/bpp-plus-syntax-highlighting.git
-cd bpp-plus-syntax-highlighting
+git clone https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter.git
+cd bpp-plus-syntax-highlighter
 code .
-# Press F5 to launch development window
 ```
 
-## BPP+ preprocessor
+Press `F5` to launch extension development host.
 
-This extension provides syntax highlighting for BPP+, a preprocessor that adds modern development features to BASIC v2:
+### Verification
 
-- **Labels** - Named anchors instead of line numbers
-- **Scopes** - Organize related labels into namespaces
-- **Includes** - Modular source files and binary data
-- **Statement chaining** - Multi-line statements for readability
+After installation, create a test file:
+
+```bash
+echo '10 print "{clr}{wht}hello world"' > test.bas
+code test.bas
+```
+
+Expected:
+- Extension activates when opening `.bas` or `.bpp` files
+- Keywords like `print` appear styled
+- Status bar shows **BPP+ BASIC v2** as language mode
+
+---
 
 ## Documentation
 
-Comprehensive documentation for this extension and the BPP+ preprocessor is coming soon at [cbasereferenceguide.github.io](https://cbasereferenceguide.github.io).
+Complete documentation available:
 
-## Version history
+- **[Manual](manual.md)** - Comprehensive single-document reference
+- **[Overview](overview.md)** - Quick feature summary
+- **[Online documentation](https://cbasereferenceguide.github.io/development/bpp-plus-syntax-highlighting/)** - Full site with navigation
 
-### 0.0.5 (Current)
-- Complete snippet system update with 100+ snippets
-- All Commodore 64 control characters in token and chr$() forms
-- Enhanced function snippets with parameter placeholders
-- Improved BPP+ preprocessor support
+---
 
-### 0.0.4
-- Comprehensive syntax highlighting
-- BPP+ features support
-- String token handling
-- Initial snippet collection
+## Related tools
 
-See [CHANGELOG.md](CHANGELOG.md) for complete history.
+**BPP+ Preprocessor** - Source-to-source compiler that transpiles enhanced BASIC syntax into standard Commodore BASIC v2.
 
-## License
+BPP+ adds modern development features to BASIC v2:
+- Labels - Named anchors instead of line numbers
+- Scopes - Organize related labels into namespaces
+- Includes - Modular source files and binary data
+- Statement chaining - Multi-line statements for readability
 
-See [LICENSE](LICENSE.md) file.
+**Learn more:**
+- [BPP+ Preprocessor Documentation](https://cbasereferenceguide.github.io/development/bpp-plus-preprocessor/)
+- [BPP+ Preprocessor Repository](https://github.com/cbase-larrymod/bpp-plus)
+
+---
+
+## Version
+
+**Current:** 0.0.5 (November 2025)
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+---
 
 ## Contributing
 
-Issues and pull requests welcome on [GitHub](https://github.com/cbase-larrymod/bpp-plus-syntax-highlighting).
+Issues and pull requests welcome. Maintain consistency with existing patterns when adding features.
 
-Maintain consistency with existing patterns when adding features.
+---
+
+## License
+
+See [LICENSE.md](LICENSE.md) for details.
+
+---
+
+**Repository:** [github.com/cbase-larrymod/bpp-plus-syntax-highlighter](https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter)

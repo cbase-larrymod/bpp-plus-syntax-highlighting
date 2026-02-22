@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - Added syntax highlighting for Prof. Plum’s BASIC extensions:
   - @
   - ← (arrow-left)
+  - ↑ (arrow-up)
 
 These symbols are now recognized and highlighted as special C\*Base BASIC v2 commands. 
 

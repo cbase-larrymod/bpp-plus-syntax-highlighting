@@ -94,7 +94,7 @@
     "fors": {
         "prefix": "fors",
         "body": [
-            "for ${1:<counter variable>}=${2:<start value>} to ${3:<end value>} step ${4:<stepsize>}:$(5:<expression>):next ${1:<counter variable>}$0"
+            "for ${1:<counter variable>}=${2:<start value>} to ${3:<end value>} step ${4:<stepsize>}:${5:<expression>}:next ${1:<counter variable>}$0"
         ],
         "description": "The BASIC command FOR is the start command of a FOR…TO…STEP…NEXT loop."
     },
@@ -138,7 +138,7 @@
     "if": {
         "prefix": "if",
         "body": [
-            "if ${1:<condition>} ${2|then,goto|} ${3:<line or espression>}$0"
+            "if ${1:<condition>} ${2|then,goto|} ${3:<line or expression>}$0"
         ],
         "description": "The BASIC command IF is used to test a condition."
     },
@@ -187,7 +187,7 @@
     "load": {
         "prefix": "load",
         "body": [
-            "load ${1:<filename>},${2:<device number>}${3:<secondary number>}$0"
+            "load ${1:<filename>},${2:<device number>},${3:<secondary number>}$0"
         ],
         "description": "The BASIC command LOAD is normally used for loading program files (PRG) like BASIC, machine language programs, but actually any kind of data from datasette or disk drive into RAM."
     },
@@ -201,7 +201,7 @@
     "mid$": {
         "prefix": "mid$",
         "body": [
-            "mid$(${1:<string>},${2:<integer number (start)>},${3:<integer number (end optional)>})$0"
+            "mid$(${1:<string>},${2:<start>},${3:<length optional>})$0"
         ],
         "description": "MID$ will be used for cutting strings into component parts inside strings beginning by the startchar (1. integer number) until to the indicated length number (2. integer number) from the left side to the right side."
     },
@@ -222,7 +222,7 @@
     "open": {
         "prefix": "open",
         "body": [
-            "open ${1:<logical filenumber>},${2:<device number>}${3:<secondary number>}$0"
+            "open ${1:<logical filenumber>},${2:<device number>},${3:<secondary number>}$0"
         ],
         "description": "The BASIC command OPEN is used for opening a logical file"
     },
@@ -293,7 +293,7 @@
     "save": {
         "prefix": "save",
         "body": [
-            "save ${1:<filename>},${2:<device number>}${3:<secondary number>}$0"
+            "save ${1:<filename>},${2:<device number>},${3:<secondary number>}$0"
         ],
         "description": "A written BASIC or computer code program, which exists in temporary RAM-memory, can be saved with the BASIC command SAVE permanently to a storage device such as a datasette, diskdrive or harddisk as a filetype program (PRG)."
     },
@@ -371,7 +371,7 @@
     "wait": {
         "prefix": "wait",
         "body": [
-            "wait ${1:<memory adress>},${2:<and mask>},${2:<flip mask (optional)>}$0"
+            "wait ${1:<memory adress>},${2:<and mask>},${3:<flip mask (optional)>}$0"
         ],
         "description": "WAIT is a keyword in the built-in BASIC interpreter, which waits for a given memory location to match specific bit constellations."
     },

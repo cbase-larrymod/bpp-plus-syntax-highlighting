@@ -40,6 +40,9 @@
             "include": "#statement_chaining"
         },
         {
+            "include": "#petscii_conversions"
+        },
+        {
             "include": "#labels"
         },
         {
@@ -260,12 +263,22 @@
             ]
         },
 
+        "petscii_conversions": {
+            "patterns": [
+                {
+                    "name": "constant.character.petscii-conversion",
+                    "comment": "PETSCII characters converted to ASCII: £→\\, ←→_, ↑→^",
+                    "match": "[£←↑]"
+                }
+            ]
+        },
+
         "extension_symbols": {
             "patterns": [
                 {
                     "name": "invalid.illegal.prof-plum-extensions",
-                    "comment": "Highlight Prof. Plum’s BASIC symbols like @ and ←",
-                    "match": "[@←]"
+                    "comment": "Highlight Prof. Plum's BASIC symbols like @",
+                    "match": "@"
                 }
             ]
         }

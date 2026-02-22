@@ -1,6 +1,3 @@
-# VS Code Extension build outputs
-dist/*.vsix
-
 # Local VS Code settings
 .vscode/launch.local.json
 
