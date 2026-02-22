@@ -646,6 +646,6 @@ Both shortcuts eliminate the need to manually type the dual-output pattern in C\
 
 ---
 
-**Last updated:** 2025-02-22
+**Last updated:** 2026-02-22
 **Version:** 0.0.6
 **License:** See [LICENSE.md](https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter/blob/main/LICENSE.md)
