@@ -2,7 +2,7 @@
 
 Visual Studio Code extension for Commodore 64 BASIC v2 and BPP+ preprocessor.
 
-**Version:** 0.0.5
+**Version:** 0.0.6
 **Part of:** C\*Base Larry Mod v3.1
 
 ---
@@ -71,13 +71,13 @@ cd bpp-plus-syntax-highlighter
 1. Open Extensions panel (`Ctrl+Shift+X` or `Cmd+Shift+X`)
 2. Click the `⋯` menu (top-right)
 3. Select **Install from VSIX**
-4. Navigate to `dist/bpp-plus-basic-v2-syntax-0.0.5.vsix`
+4. Navigate to `dist/bpp-plus-basic-v2-syntax-0.0.6.vsix`
 5. Click **Install**
 
 **Install via command line:**
 
 ```bash
-code --install-extension dist/bpp-plus-basic-v2-syntax-0.0.5.vsix
+code --install-extension dist/bpp-plus-basic-v2-syntax-0.0.6.vsix
 ```
 
 #### Method 2: Build and install from source
@@ -94,7 +94,7 @@ npm install -g @vscode/vsce
 npm run package
 ```
 
-The package command creates `dist/bpp-plus-basic-v2-syntax-0.0.5.vsix`.
+The package command creates `dist/bpp-plus-basic-v2-syntax-0.0.6.vsix`.
 
 Install using VS Code UI or command line (see Method 1).
 
@@ -312,12 +312,12 @@ npm install -g vsce
 npm run package
 ```
 
-Output: `dist/bpp-plus-basic-v2-syntax-0.0.5.vsix`
+Output: `dist/bpp-plus-basic-v2-syntax-0.0.6.vsix`
 
 Install:
 
 ```bash
-code --install-extension dist/bpp-plus-basic-v2-syntax-0.0.5.vsix
+code --install-extension dist/bpp-plus-basic-v2-syntax-0.0.6.vsix
 ```
 
 #### Grammar Modification
@@ -647,5 +647,5 @@ Both shortcuts eliminate the need to manually type the dual-output pattern in C\
 ---
 
 **Last updated:** 2025-02-22
-**Version:** 0.0.5
+**Version:** 0.0.6
 **License:** See [LICENSE.md](https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter/blob/main/LICENSE.md)

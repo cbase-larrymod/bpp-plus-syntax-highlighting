@@ -19,6 +19,9 @@
             "include": "#keywords_io_disk"
         },
         {
+            "include": "#petscii_conversions"
+        },
+        {
             "include": "#operators"
         },
         {
@@ -38,9 +41,6 @@
         },
         {
             "include": "#statement_chaining"
-        },
-        {
-            "include": "#petscii_conversions"
         },
         {
             "include": "#labels"
@@ -211,11 +211,14 @@
         },
 
         "strings": {
-            "name": "string.quoted.double",
-                "comment": "Double-quoted strings, may include braced tokens (single quotes are treated as normal characters)",
+          "name": "string.quoted.double",
+            "comment": "Double-quoted strings, may include braced tokens (single quotes are treated as normal characters)",
             "begin": "[\"]",
             "end": "[\"]",
             "patterns": [
+                {
+                    "include": "#petscii_conversions"
+                },
                 {
                     "name": "meta.token.braced",
                     "comment": "Braced tokens inside strings, e.g., {XXX}, {XXX-Z}, {Y XXX-Z}",
@@ -230,17 +233,14 @@
                     "patterns": [
                         {
                             "name": "constant.numeric.token-count",
-                            "comment": "Numeric token inside braces",
                             "match": "\\b\\d+\\b"
                         },
                         {
                             "name": "support.function.token",
-                            "comment": "Alphanumeric token including operators -+*^@. inside braces",
                             "match": "[a-zA-Z_][a-zA-Z0-9_\\-+*^@\\.]*"
                         },
                         {
                             "name": "text.whitespace",
-                            "comment": "Whitespace inside braced token",
                             "match": "\\s+"
                         }
                     ]
@@ -266,7 +266,7 @@
         "petscii_conversions": {
             "patterns": [
                 {
-                    "name": "constant.character.petscii-conversion",
+                    "name": "invalid.illegal.petscii-conversion",
                     "comment": "PETSCII characters converted to ASCII: £→\\, ←→_, ↑→^",
                     "match": "[£←↑]"
                 }

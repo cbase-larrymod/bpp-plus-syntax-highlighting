@@ -1,15 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.0.6] - 2026-02-22
+
+### Fixed
+
+PETSCII extension symbols are now correctly highlighted both outside and inside double-quoted strings:
+
+- @
+- ← (arrow-left)
+- £ (pound symbol)
+
+These symbols are now consistently recognized as extension symbols across all contexts.
+  
 ## [0.0.5] - 2025-10-18
 
 ### Added
 - Added syntax highlighting for Prof. Plum’s BASIC extensions:
   - @
   - ← (arrow-left)
-  - ↑ (arrow-up)
 
-These symbols are now recognized and highlighted as special C\*Base BASIC v2 commands. 
+These symbols are now recognized and highlighted as special C\*Base BASIC v2 commands.
 
 **Note**  
 The :: sequence forces the compiler **(Blitz)** to compile the following command as an extension. However, this is not required for the two extensions from Prof. Plum  `@` and  `←`.
