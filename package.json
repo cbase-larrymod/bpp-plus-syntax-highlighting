@@ -2,7 +2,7 @@
     "name": "bpp-plus-basic-v2-syntax",
     "displayName": "BPP+ BASIC v2 Syntax Highlighting",
     "description": "Syntax highlighting for BPP+ preprocessor and Commodore 64 BASIC v2 code",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "publisher": "cbase-larrymod",
     "repository": {
         "type": "git",

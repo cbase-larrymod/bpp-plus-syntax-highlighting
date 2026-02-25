@@ -217,9 +217,6 @@
             "end": "[\"]",
             "patterns": [
                 {
-                    "include": "#petscii_conversions"
-                },
-                {
                     "name": "meta.token.braced",
                     "comment": "Braced tokens inside strings, e.g., {XXX}, {XXX-Z}, {Y XXX-Z}",
                     "begin": "\\{",

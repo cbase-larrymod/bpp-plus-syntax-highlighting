@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.0.7] - 2026-02-25
+
+### Removed
+Removed syntax highlighting inside print statements for:
+
+- @
+- ← (arrow-left)
+- £ (pound symbol)
+
 ## [0.0.6] - 2026-02-22
 
 ### Fixed

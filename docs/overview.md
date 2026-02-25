@@ -2,7 +2,7 @@
 
 Visual Studio Code extension for Commodore 64 BASIC v2 and BPP+ preprocessor.
 
-**Version:** 0.0.6
+**Version:** 0.0.7
 **Part of:** C\*Base Larry Mod v3.1
 
 ---
