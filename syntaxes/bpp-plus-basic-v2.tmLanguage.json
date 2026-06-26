@@ -204,7 +204,7 @@
         "labels": {
             "patterns": [
                 {
-                    "name": "entity.name.label",
+                    "name": "entity.name.function",
                     "comment": "BPP+ labels ending with a colon at start of line, allows letters, digits, and underscores, but skips BASIC keywords like NEXT",
                     "match": "(?i)^\\s*(?!(?:next|return|stop|end)\\s*:)[_A-Za-z][_A-Za-z0-9]*:"
                 }

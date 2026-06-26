@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 - `keywords_storage`: split into `storage.type` (dim, def) and `keyword.other` (data, let) — `storage.modifier` was the wrong TextMate scope
 - `keywords_io_disk`: changed scope from non-standard `keyword.io` to `keyword.other`
 - `numbers_line`: changed scope from `constant.language` to `constant.numeric` — line numbers are numeric, not language constants; now consistent with inline numbers
-- `labels`: changed scope from `entity.name.function.basic` to `entity.name.label` — labels are jump targets, not function definitions
+- `labels`: changed scope from `entity.name.function.basic` to `entity.name.function` — matches `label_subroutine_calls` so definition and reference sites share the same color
 - `user_functions`: outer scope changed to `meta.definition.function`; `DEF FN`/`FN` keyword changed from `keyword.control` to `keyword.other`
 - `statement_chaining`: changed scope from `invalid.illegal` to `punctuation.separator.continuation` — backslash continuation is valid BPP+ syntax, not an error
 - `extension_symbols`: changed scope from `invalid.illegal` to `keyword.other.extension` — `@` is a valid C*Base command, not an error
