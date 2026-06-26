@@ -31,6 +31,12 @@
             "include": "#numbers_numeric"
         },
         {
+            "include": "#blitz_directives"
+        },
+        {
+            "include": "#blitz_extension_marker"
+        },
+        {
             "include": "#comments"
         },
         {
@@ -217,6 +223,50 @@
                     "name": "entity.name.function",
                     "comment": "BPP+ subroutine names after GOSUB or GOTO, optionally with child using dot; allows spaces after commas",
                     "match": "(?<=\\b(gosub|goto)\\s+)([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)?)(?:\\s*,\\s*([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)?))*"
+                }
+            ]
+        },
+
+        "blitz_directives": {
+            "patterns": [
+                {
+                    "name": "meta.preprocessor.blitz",
+                    "comment": "rem ** form of Blitz! compiler directive — matched before comments so rem ** is not treated as a regular REM comment",
+                    "begin": "(?i)^\\s*rem\\s+\\*\\*",
+                    "end": "$",
+                    "beginCaptures": {
+                        "0": { "name": "keyword.control.directive" }
+                    },
+                    "patterns": [
+                        {
+                            "name": "keyword.other",
+                            "match": "(?i)\\b(se|sa|ie|ia|ne|sp)\\b"
+                        },
+                        {
+                            "name": "constant.numeric",
+                            "match": "\\b\\d+\\b"
+                        }
+                    ]
+                },
+                {
+                    "name": "meta.preprocessor.blitz",
+                    "comment": "!blitz form of Blitz! compiler directive — BPP+ alternative that converts to rem ** during preprocessing",
+                    "match": "(!blitz)\\s+(se|sa|ie|ia|ne|sp)(?:\\s+(\\d+))?",
+                    "captures": {
+                        "1": { "name": "keyword.control.directive" },
+                        "2": { "name": "keyword.other" },
+                        "3": { "name": "constant.numeric" }
+                    }
+                }
+            ]
+        },
+
+        "blitz_extension_marker": {
+            "patterns": [
+                {
+                    "name": "keyword.control.directive",
+                    "comment": ":: prefix forces Blitz! to interpret the following statement at runtime rather than compiling it",
+                    "match": "^\\s*::"
                 }
             ]
         },
