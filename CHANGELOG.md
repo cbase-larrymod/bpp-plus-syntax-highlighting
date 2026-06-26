@@ -4,10 +4,13 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- Added missing BASIC v2 functions to `keywords_functions`: `fre`, `log`, `spc`, `tab`
+- Added reserved system variables `st`, `ti`, and `ti$` as `variable.language` — distinguished from regular user variables
 - Added missing BASIC v2 keywords to `keywords_io_disk`: `cmd`, `cont`, `new`
 
 ### Fixed
 - `clr` was not highlighted — missing from `keywords_io_disk`, causing it to fall through to `variable.other`
+- `peek` removed from `keywords_io_disk` where it was a duplicate — it is correctly matched by `keywords_functions`
 - String functions `chr$`, `left$`, `mid$`, `right$`, and `str$` were not highlighted as `support.function` — the trailing `\b` word boundary assertion failed when the function was followed by `(`, because `$` is a non-word character and `\b` after it requires the next character to be a word character. Fixed by splitting `keywords_functions` into two patterns: one with a trailing `\b` for non-`$` functions, and one without for `$`-suffixed functions.
 
 ## [0.0.7] - 2026-02-25

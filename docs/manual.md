@@ -223,7 +223,7 @@ Snippets expand when you type a prefix and press `Tab`. Press `Tab` to move betw
 - `close`, `load`, `open`, `save`, `verify`
 
 **Memory and system:**
-- `fre`, `peek`, `poke`, `pos`, `sys`, `usr`, `wait`
+- `fre`, `peek`, `poke`, `pos`, `spc`, `sys`, `tab`, `usr`, `wait`
 
 **PETSCII control characters:**
 - Colors: `{wht}`, `{red}`, `{grn}`, `{blu}`, `{blk}`, `{cyn}`, `{pur}`, `{yel}`
@@ -239,6 +239,7 @@ Snippets expand when you type a prefix and press `Tab`. Press `Tab` to move betw
 - Control flow keywords: `end`, `for`, `next`, `gosub`, `goto`, `if`, `then`, `step`, `stop`, `return`, `to`, `on`
 - Built-in functions: Math, string, and system functions
 - Variables: Standard, string (`$`), integer (`%`)
+- System variables: `st`, `ti`, `ti$` — highlighted distinctly from user variables
 - Numbers: Line numbers, decimal, hexadecimal (`$`), binary (`%`)
 - Comments: `rem` and `;`
 - Strings: Double-quoted with PETSCII tokens
