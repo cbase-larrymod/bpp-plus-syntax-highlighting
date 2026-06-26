@@ -235,7 +235,7 @@
                     "begin": "(?i)^\\s*rem\\s+\\*\\*",
                     "end": "$",
                     "beginCaptures": {
-                        "0": { "name": "keyword.control.directive" }
+                        "0": { "name": "meta.preprocessor" }
                     },
                     "patterns": [
                         {
@@ -253,7 +253,7 @@
                     "comment": "!blitz form of Blitz! compiler directive — BPP+ alternative that converts to rem ** during preprocessing",
                     "match": "(!blitz)\\s+(se|sa|ie|ia|ne|sp)(?:\\s+(\\d+))?",
                     "captures": {
-                        "1": { "name": "keyword.control.directive" },
+                        "1": { "name": "meta.preprocessor" },
                         "2": { "name": "keyword.other" },
                         "3": { "name": "constant.numeric" }
                     }
@@ -264,7 +264,7 @@
         "blitz_extension_marker": {
             "patterns": [
                 {
-                    "name": "keyword.control.directive",
+                    "name": "meta.preprocessor",
                     "comment": ":: prefix forces Blitz! to interpret the following statement at runtime rather than compiling it",
                     "match": "^\\s*::"
                 }
