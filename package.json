@@ -4,6 +4,8 @@
     "description": "Syntax highlighting for BPP+ preprocessor and Commodore 64 BASIC v2 code",
     "version": "0.0.7",
     "publisher": "cbase-larrymod",
+    "icon": "media/icon.png",
+    "license": "GPL-2.0-or-later",
     "repository": {
         "type": "git",
         "url": "https://github.com/cbase-larrymod/bpp-plus-syntax-highlighting.git"
