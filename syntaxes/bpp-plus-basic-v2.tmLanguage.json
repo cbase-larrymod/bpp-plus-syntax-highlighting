@@ -49,6 +49,9 @@
             "include": "#label_subroutine_calls"
         },
         {
+            "include": "#keywords_system_vars"
+        },
+        {
             "include": "#variables"
         },
         {
@@ -57,6 +60,21 @@
      ],
 
     "repository": {
+
+        "keywords_system_vars": {
+            "patterns": [
+                {
+                    "name": "variable.language",
+                    "comment": "C64 BASIC v2 reserved system variables ST and TI",
+                    "match": "(?i)\\b(st|ti)\\b"
+                },
+                {
+                    "name": "variable.language",
+                    "comment": "C64 BASIC v2 reserved system variable TI$ — no trailing \\b because $ is non-word",
+                    "match": "(?i)\\bti\\$"
+                }
+            ]
+        },
 
         "variables": {
             "patterns": [
@@ -83,7 +101,7 @@
                 {
                     "name": "support.function",
                     "comment": "BASIC v2 standard functions without $ suffix",
-                    "match": "(?i)\\b(abs|asc|atn|cos|exp|int|len|peek|pos|rnd|sgn|sin|sqr|tan|usr|val)\\b"
+                    "match": "(?i)\\b(abs|asc|atn|cos|exp|fre|int|len|log|peek|pos|rnd|sgn|sin|spc|sqr|tab|tan|usr|val)\\b"
                 },
                 {
                     "name": "support.function",
@@ -128,7 +146,7 @@
                 {
                     "name": "keyword.io",
                     "comment": "BASIC v2 I/O and disk operations",
-                    "match": "(?i)\\b(print|print#|input|input#|open|close|load|list|save|restore|read|get|get#|poke|peek|sys|run|verify|wait|clr|cmd|cont|new)\\b"
+                    "match": "(?i)\\b(print|print#|input|input#|open|close|load|list|save|restore|read|get|get#|poke|sys|run|verify|wait|clr|cmd|cont|new)\\b"
                 }
             ]
         },
