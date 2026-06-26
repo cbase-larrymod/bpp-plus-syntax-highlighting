@@ -199,7 +199,7 @@
                     "comment": "BPP+ include statements with type and file path, e.g., !include source \"../common/file.bpp\" or !include data \"file.bpp\"",
                     "match": "(!include)\\s+(source|data)\\s+\"([^\"]+)\"",
                     "captures": {
-                        "1": { "name": "keyword.control.include" },
+                        "1": { "name": "meta.preprocessor" },
                         "2": { "name": "storage.type.include" },
                         "3": { "name": "string.quoted.double.include" }
                     }

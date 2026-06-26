@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Added `blitz_directives` pattern: `rem **` and `!blitz` forms now highlighted identically as `meta.preprocessor` — `rem **` is matched before the general comment handler so it is no longer treated as a regular comment
+- `!include` keyword changed from `keyword.control.include` to `meta.preprocessor` — consistent with `!blitz` and `rem **` as BPP+ preprocessor directives
 - Added `blitz_extension_marker` pattern: `::` prefix highlighted as `meta.preprocessor`
 - Added missing BASIC v2 functions to `keywords_functions`: `fre`, `log`, `spc`, `tab`
 - Added reserved system variables `st`, `ti`, and `ti$` as `variable.language` — distinguished from regular user variables
