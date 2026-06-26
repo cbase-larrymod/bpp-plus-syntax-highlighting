@@ -82,8 +82,13 @@
             "patterns": [
                 {
                     "name": "support.function",
-                    "comment": "BASIC v2 standard functions",
-                    "match": "(?i)\\b(abs|asc|atn|chr\\$|cos|exp|int|len|left\\$|mid\\$|peek|pos|rnd|right\\$|sgn|sin|sqr|tan|str\\$|usr|val)\\b"
+                    "comment": "BASIC v2 standard functions without $ suffix",
+                    "match": "(?i)\\b(abs|asc|atn|cos|exp|int|len|peek|pos|rnd|sgn|sin|sqr|tan|usr|val)\\b"
+                },
+                {
+                    "name": "support.function",
+                    "comment": "BASIC v2 string functions with $ suffix — no trailing \\b because $ is non-word so \\b after it requires the next char to be word, which ( is not",
+                    "match": "(?i)\\b(chr\\$|left\\$|mid\\$|right\\$|str\\$)"
                 }
             ]
         },
