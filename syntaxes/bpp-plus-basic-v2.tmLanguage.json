@@ -128,7 +128,7 @@
                 {
                     "name": "keyword.io",
                     "comment": "BASIC v2 I/O and disk operations",
-                    "match": "(?i)\\b(print|print#|input|input#|open|close|load|list|save|restore|read|get|get#|poke|peek|sys|run|verify|wait)\\b"
+                    "match": "(?i)\\b(print|print#|input|input#|open|close|load|list|save|restore|read|get|get#|poke|peek|sys|run|verify|wait|clr|cmd|cont|new)\\b"
                 }
             ]
         },
