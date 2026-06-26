@@ -292,8 +292,8 @@
         "extension_symbols": {
             "patterns": [
                 {
-                    "name": "keyword.other.extension",
-                    "comment": "Prof. Plum's C*Base BASIC extension symbol @",
+                    "name": "invalid.illegal.prof-plum-extensions",
+                    "comment": "Prof. Plum's C*Base BASIC extension symbol @ — uses invalid.illegal to match petscii_conversions rendering so both stand out the same way",
                     "match": "@"
                 }
             ]
