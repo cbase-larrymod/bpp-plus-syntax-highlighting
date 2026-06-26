@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+- `keywords_storage`: split into `storage.type` (dim, def) and `keyword.other` (data, let) — `storage.modifier` was the wrong TextMate scope
+- `keywords_io_disk`: changed scope from non-standard `keyword.io` to `keyword.other`
+- `numbers_line`: changed scope from `constant.language` to `constant.numeric` — line numbers are numeric, not language constants; now consistent with inline numbers
+- `labels`: changed scope from `entity.name.function.basic` to `entity.name.label` — labels are jump targets, not function definitions
+- `user_functions`: outer scope changed to `meta.definition.function`; `DEF FN`/`FN` keyword changed from `keyword.control` to `keyword.other`
+- `statement_chaining`: changed scope from `invalid.illegal` to `punctuation.separator.continuation` — backslash continuation is valid BPP+ syntax, not an error
+- `extension_symbols`: changed scope from `invalid.illegal` to `keyword.other.extension` — `@` is a valid C*Base command, not an error
+- Braced token delimiters `{` `}` inside strings: changed from `support.function.token.braces.*` to `punctuation.definition.keyword.begin/end`
+- Removed redundant `text.whitespace` match inside braced tokens
+- Removed redundant `string.character` catch-all inside strings
+
 ### Added
 - Added missing BASIC v2 functions to `keywords_functions`: `fre`, `log`, `spc`, `tab`
 - Added reserved system variables `st`, `ti`, and `ti$` as `variable.language` — distinguished from regular user variables

@@ -114,13 +114,13 @@
         "user_functions": {
             "patterns": [
                 {
-                    "name": "entity.name.function.user",
+                    "name": "meta.definition.function",
                     "comment": "BASIC v2 user-defined FN functions",
                     "match": "(?i)\\b(DEF\\s+FN|FN)\\s+([A-Z][A-Z0-9_]*)\\b",
                     "captures": {
                         "1": {
-                            "name": "keyword.control",
-                            "comment": "FN keyword"
+                            "name": "keyword.other",
+                            "comment": "DEF FN / FN keyword"
                         },
                         "2": {
                             "name": "entity.name.function.user",
@@ -134,9 +134,14 @@
         "keywords_storage": {
             "patterns": [
                 {
-                    "name": "storage.modifier",
-                    "comment": "BASIC v2 variable declaration keywords",
-                    "match": "(?i)\\b(dim|data|let|def)\\b"
+                    "name": "storage.type",
+                    "comment": "BASIC v2 declaration keywords",
+                    "match": "(?i)\\b(dim|def)\\b"
+                },
+                {
+                    "name": "keyword.other",
+                    "comment": "BASIC v2 data and assignment keywords",
+                    "match": "(?i)\\b(data|let)\\b"
                 }
             ]
         },
@@ -144,7 +149,7 @@
         "keywords_io_disk": {
             "patterns": [
                 {
-                    "name": "keyword.io",
+                    "name": "keyword.other",
                     "comment": "BASIC v2 I/O and disk operations",
                     "match": "(?i)\\b(print|print#|input|input#|open|close|load|list|save|restore|read|get|get#|poke|sys|run|verify|wait|clr|cmd|cont|new)\\b"
                 }
@@ -164,9 +169,9 @@
         "numbers_line": {
             "patterns": [
                 {
-                    "name": "constant.language",
+                    "name": "constant.numeric",
                     "comment": "BASIC v2 line numbers at the start of a line",
-                    "match": "^\\s*(\\d+)"
+                    "match": "^\\s*\\d+"
                 }
             ]
         },
@@ -183,23 +188,23 @@
 
         "include_statements": {
             "patterns": [
-                    {
-                        "name": "meta.include.statement",
-                        "comment": "BPP+ include statements with type and file path, e.g., !include source \"../common/file.bpp\" or !include data \"file.bpp\"",
-                        "match": "(!include)\\s+(source|data)\\s+\"([^\"]+)\"",
-                            "captures": {
-                                "1": { "name": "keyword.control.include" },
-                                "2": { "name": "storage.type.include" },
-                                "3": { "name": "string.quoted.double.include" }
-                            }
+                {
+                    "name": "meta.include.statement",
+                    "comment": "BPP+ include statements with type and file path, e.g., !include source \"../common/file.bpp\" or !include data \"file.bpp\"",
+                    "match": "(!include)\\s+(source|data)\\s+\"([^\"]+)\"",
+                    "captures": {
+                        "1": { "name": "keyword.control.include" },
+                        "2": { "name": "storage.type.include" },
+                        "3": { "name": "string.quoted.double.include" }
                     }
+                }
             ]
         },
 
         "labels": {
             "patterns": [
                 {
-                    "name": "entity.name.function.basic",
+                    "name": "entity.name.label",
                     "comment": "BPP+ labels ending with a colon at start of line, allows letters, digits, and underscores, but skips BASIC keywords like NEXT",
                     "match": "(?i)^\\s*(?!(?:next|return|stop|end)\\s*:)[_A-Za-z][_A-Za-z0-9]*:"
                 }
@@ -234,7 +239,7 @@
         },
 
         "strings": {
-          "name": "string.quoted.double",
+            "name": "string.quoted.double",
             "comment": "Double-quoted strings, may include braced tokens (single quotes are treated as normal characters)",
             "begin": "[\"]",
             "end": "[\"]",
@@ -245,10 +250,10 @@
                     "begin": "\\{",
                     "end": "\\}",
                     "beginCaptures": {
-                        "0": { "name": "support.function.token.braces.begin" }
+                        "0": { "name": "punctuation.definition.keyword.begin" }
                     },
                     "endCaptures": {
-                        "0": { "name": "support.function.token.braces.end" }
+                        "0": { "name": "punctuation.definition.keyword.end" }
                     },
                     "patterns": [
                         {
@@ -258,17 +263,8 @@
                         {
                             "name": "support.function.token",
                             "match": "[a-zA-Z_][a-zA-Z0-9_\\-+*^@\\.]*"
-                        },
-                        {
-                            "name": "text.whitespace",
-                            "match": "\\s+"
                         }
                     ]
-                },
-                {
-                    "name": "string.character",
-                    "comment": "Any other character inside the string",
-                    "match": "."
                 }
             ]
         },
@@ -276,9 +272,9 @@
         "statement_chaining": {
             "patterns": [
                 {
-                    "name": "invalid.illegal.statement-chaining",
-                    "match": "\\\\$",
-                    "comment": "Backslash at end of line for BPP+ statement chaining"
+                    "name": "punctuation.separator.continuation",
+                    "comment": "Backslash at end of line for BPP+ statement chaining",
+                    "match": "\\\\$"
                 }
             ]
         },
@@ -296,8 +292,8 @@
         "extension_symbols": {
             "patterns": [
                 {
-                    "name": "invalid.illegal.prof-plum-extensions",
-                    "comment": "Highlight Prof. Plum's BASIC symbols like @",
+                    "name": "keyword.other.extension",
+                    "comment": "Prof. Plum's C*Base BASIC extension symbol @",
                     "match": "@"
                 }
             ]
