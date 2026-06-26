@@ -512,11 +512,36 @@ Backslash (`\`) continuation character.
 
 #### Blitz! Compiler Control
 
+Blitz! directives configure the compiler and control which statements are compiled vs interpreted. Two equivalent forms are supported:
+
+**Native form:**
 ```cbmbas
-:: print "This line will not be compiled by Blitz!"
+rem ** se           rem Enable STOP key
+rem ** sa           rem Disable STOP key (default)
+rem ** ie           rem Enable INPUT command
+rem ** ia           rem Disable INPUT command (default)
+rem ** sp 1234      rem Specify dongle number
+rem ** ne           rem No extension listing
 ```
 
-The `::` prefix prevents Blitz! compilation, forcing runtime interpretation.
+**BPP+ form** (converts to native during preprocessing):
+```cbmbas
+!blitz se
+!blitz sa
+!blitz ie
+!blitz ia
+!blitz sp 1234
+!blitz ne
+```
+
+Both forms are highlighted identically as preprocessor directives.
+
+**Extension marker** — forces the following statement to execute as interpreted BASIC at runtime rather than compiled P-Code:
+
+```cbmbas
+:: sys 49152
+:: dload "file",8
+```
 
 #### PETSCII Character Conversion
 

@@ -22,7 +22,7 @@ Colors keywords, functions, variables, strings, numbers, and PETSCII control cha
 - 100+ code snippets with tab-navigable placeholders
 - PETSCII control characters in token (`{clr}`) and chr$ (`chr$(147)`) forms
 - Extension symbols (MCI commands: `@`, `←`, `£`)
-- Blitz! compiler directive support (`rem **`, `::`)
+- Blitz! compiler directive support (`rem **`, `!blitz`, `::`)
 - Theme compatibility (adapts to any VS Code color scheme)
 - Zero configuration required
 

@@ -15,7 +15,7 @@ Part of the **C\*Base Larry Mod v3.1** development package.
 - 100+ code snippets with tab-navigable placeholders
 - PETSCII control characters in token (`{clr}`) and chr$ (`chr$(147)`) forms
 - Extension symbols (MCI commands: `@`, `←`, `£`)
-- Blitz! compiler directive support (`rem **`, `::`)
+- Blitz! compiler directive support (`rem **`, `!blitz`, `::`)
 - Theme compatibility (adapts to any VS Code color scheme)
 - Zero configuration required
 
