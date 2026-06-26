@@ -2,7 +2,7 @@
 
 Visual Studio Code extension for Commodore 64 BASIC v2 and BPP+ preprocessor.
 
-**Version:** 0.0.7
+**Version:** 0.1.0
 **Part of:** C\*Base Larry Mod v3.1
 
 ---
@@ -70,5 +70,5 @@ Source code, issues, and releases:
 
 ---
 
-**Last updated:** 2025-02-22
+**Last updated:** 2026-06-26
 **License:** See [LICENSE.md](https://github.com/cbase-larrymod/bpp-plus-syntax-highlighter/blob/main/LICENSE.md)

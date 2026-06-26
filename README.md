@@ -70,12 +70,12 @@ The repository includes a pre-compiled `.vsix` file in the `dist/` folder.
    **Via VS Code UI:**
    - Open Extensions panel (`Ctrl+Shift+X` or `Cmd+Shift+X`)
    - Click `···` menu → **Install from VSIX**
-   - Navigate to `dist/bpp-plus-basic-v2-syntax-0.0.7.vsix`
+   - Navigate to `dist/bpp-plus-basic-v2-syntax-0.1.0.vsix`
    - Click **Install**
 
    **Via command line:**
    ```bash
-   code --install-extension dist/bpp-plus-basic-v2-syntax-0.0.7.vsix
+   code --install-extension dist/bpp-plus-basic-v2-syntax-0.1.0.vsix
    ```
 
 ### Method 2: Build and install from source
@@ -96,7 +96,7 @@ The repository includes a pre-compiled `.vsix` file in the `dist/` folder.
    npm run package
    ```
 
-   This creates `dist/bpp-plus-basic-v2-syntax-0.0.7.vsix`.
+   This creates `dist/bpp-plus-basic-v2-syntax-0.1.0.vsix`.
 
 4. Install using VS Code UI or command line (see Method 1 step 2).
 
@@ -156,7 +156,7 @@ BPP+ adds modern development features to BASIC v2:
 
 ## Version
 
-**Current:** 0.0.7 (February 2026)
+**Current:** 0.1.0 (June 2026)
 
 See [CHANGELOG.md](CHANGELOG.md) for version history.
 

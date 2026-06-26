@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-06-26
+
 ### Changed
 - `keywords_storage`: split into `storage.type` (dim, def) and `keyword.other` (data, let) — `storage.modifier` was the wrong TextMate scope
 - `keywords_io_disk`: changed scope from non-standard `keyword.io` to `keyword.other`
