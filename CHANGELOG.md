@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
 - `numbers_line`: changed scope from `constant.language` to `constant.numeric` — line numbers are numeric, not language constants; now consistent with inline numbers
 - `labels`: changed scope from `entity.name.function.basic` to `entity.name.function` — matches `label_subroutine_calls` so definition and reference sites share the same color
 - `user_functions`: outer scope changed to `meta.definition.function`; `DEF FN`/`FN` keyword changed from `keyword.control` to `keyword.other`
-- `statement_chaining`: changed scope from `invalid.illegal` to `punctuation.separator.continuation` — backslash continuation is valid BPP+ syntax, not an error
+- `statement_chaining`: changed scope from `invalid.illegal` to `keyword.operator` — backslash continuation is valid BPP+ syntax; operator scope gives it high visibility in any theme
 - `extension_symbols`: kept as `invalid.illegal.prof-plum-extensions` — matches `petscii_conversions` rendering so `@` and `←` are visually consistent
 - Braced token delimiters `{` `}` inside strings: changed from `support.function.token.braces.*` to `punctuation.definition.keyword.begin/end`
 - Removed redundant `text.whitespace` match inside braced tokens

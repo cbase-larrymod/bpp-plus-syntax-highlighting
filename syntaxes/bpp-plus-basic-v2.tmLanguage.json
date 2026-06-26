@@ -272,7 +272,7 @@
         "statement_chaining": {
             "patterns": [
                 {
-                    "name": "punctuation.separator.continuation",
+                    "name": "keyword.operator",
                     "comment": "Backslash at end of line for BPP+ statement chaining",
                     "match": "\\\\$"
                 }
