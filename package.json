@@ -21,6 +21,9 @@
         "scripts": {
             "package": "node -e \"const fs=require('fs'); if(!fs.existsSync('dist'))fs.mkdirSync('dist')\" && vsce package -o dist/"
         },
+        "devDependencies": {
+            "@vscode/vsce": "^3.9.2"
+        },
         "contributes": {
             "configurationDefaults": {
                 "[bpp+basicv2]": {
