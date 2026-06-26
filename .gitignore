@@ -1,6 +1,10 @@
 # Local VS Code settings
 .vscode/launch.local.json
 
+# Build
+dist/
+*.vsix
+
 # Temporary files
 *.tmp
 *.swp
